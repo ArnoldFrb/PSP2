@@ -9,27 +9,22 @@ package logica;
  *
  * @author arnol
  */
-public class IngenierosLogica {
+public class Usuario {
     public int identificacion;
     public String nombre;
     public String apellido;
-    public int edad;
-    public int añosExperiencia;
-    public String especialidad;
-    
-    public IngenierosLogica()
-    {
-        
+    public String usuario;
+    public String contraseña;
+
+    public Usuario() {
     }
 
-    public IngenierosLogica(int identificacion, String nombre, String apellido, int edad, int añosExperiencia, String especialidad) 
-    {
+    public Usuario(int identificacion, String nombre, String apellido, String usuario, String contraseña) {
         this.identificacion = identificacion;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.edad = edad;
-        this.añosExperiencia = añosExperiencia;
-        this.especialidad = especialidad;
+        this.usuario = usuario;
+        this.contraseña = contraseña;
     }
 
     public int getIdentificacion() {
@@ -44,16 +39,12 @@ public class IngenierosLogica {
         return apellido;
     }
 
-    public int getEdad() {
-        return edad;
+    public String getUsuario() {
+        return usuario;
     }
 
-    public int getAñosExperiencia() {
-        return añosExperiencia;
-    }
-
-    public String getEspecialidad() {
-        return especialidad;
+    public String getContraseña() {
+        return contraseña;
     }
 
     public void setIdentificacion(int identificacion) {
@@ -68,15 +59,13 @@ public class IngenierosLogica {
         this.apellido = apellido;
     }
 
-    public void setEdad(int edad) {
-        this.edad = edad;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
-    public void setAñosExperiencia(int añosExperiencia) {
-        this.añosExperiencia = añosExperiencia;
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
     }
-
-    public void setEspecialidad(String especialidad) {
-        this.especialidad = especialidad;
-    }
+    
+    
 }

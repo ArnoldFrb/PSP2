@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package datos;
+import java.io.*;
+import java.util.Scanner;
+import logica.IngenierosLogica;
 
 /**
  *
@@ -11,4 +14,33 @@ package datos;
  */
 public class IngenierosDatos {
     
+    public static void WriteFile(IngenierosLogica ing) throws Exception
+    {
+        try
+        {
+            File file = new File("psp2_db\\Ingenieros.txt");
+            FileWriter write;
+            BufferedWriter buffered;
+            if(file.exists())
+            {
+                write = new FileWriter(file, true);
+                buffered = new BufferedWriter(write);
+                buffered.newLine();
+                buffered.write("HOLA MUNDO");
+            }
+            else
+            {
+                write = new FileWriter(file, true);
+                buffered = new BufferedWriter(write);
+                buffered.write(0);
+            }
+            write.close();
+            buffered.close();
+        }
+        catch(IOException e)
+        {
+            System.out.println("A ocurrido un error");
+            e.printStackTrace();
+        }
+    }
 }
