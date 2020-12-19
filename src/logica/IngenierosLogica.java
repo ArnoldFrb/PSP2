@@ -79,4 +79,14 @@ public class IngenierosLogica {
     public void setEspecialidad(String especialidad) {
         this.especialidad = especialidad;
     }
+    
+    @Override
+    public String toString() {
+        return "Ingeniero:" + "\nIdentificacion: " + identificacion + "\nNombre: " + nombre + "\nApellido: " + apellido + "\nEdad: " + edad + "\nAnios de Experiencia: " + añosExperiencia + "\nEspecialidad: " + especialidad;
+    }
+    
+    
+    public String datosParaArchivo(){
+        return this.identificacion+";"+this.nombre+";"+this.apellido+";"+this.edad+";"+this.añosExperiencia+";"+this.especialidad+"\n";
+    }
 }

@@ -67,5 +67,13 @@ public class Usuario {
         this.contraseña = contraseña;
     }
     
+    @Override
+    public String toString() {
+        return "Usuario:" + "\nIdentificacion: " + identificacion + "\nNombre: " + nombre + "\nApellido: " + apellido + "\nUsuaario: " + usuario + "\nContrasenia: " + contraseña;
+    }
     
+    
+    public String datosParaArchivo(){
+        return this.identificacion+";"+this.nombre+";"+this.apellido+";"+this.usuario+";"+this.contraseña+"\n";
+    }
 }
