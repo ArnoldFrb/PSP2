@@ -1,11 +1,13 @@
 package datos;
 import DAO.*;
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import logica.Usuario;
 
 public class UsuarioData implements UsuarioDAO{
 
-    public String Guardar(Usuario usuario) throws Exception {
+    public String writeFile(Usuario usuario) throws Exception {
         try {
             File file = new File("psp2_db\\Usuarios.txt");
             FileWriter write;
@@ -34,7 +36,7 @@ public class UsuarioData implements UsuarioDAO{
         }
     }
     
-    public Usuario Consultar(int id) throws Exception {
+    public Usuario queryFile(int querydata) throws Exception {
         Usuario usuario = new Usuario();
 
         try {
@@ -52,7 +54,7 @@ public class UsuarioData implements UsuarioDAO{
                 while((datos = buffered.readLine()) != null) {
                     String[] listaDatos = datos.split(";");
 
-                    if(listaDatos[0] == id){
+                    if(Integer.parseInt(listaDatos[0]) == querydata){
                         usuario.setIdentificacion(Integer.parseInt(listaDatos[0]));
                         usuario.setNombre(listaDatos[1]);
                         usuario.setApellido(listaDatos[2]);
@@ -71,6 +73,47 @@ public class UsuarioData implements UsuarioDAO{
             e.printStackTrace();
         }
         return usuario;
+    }
+    
+    public List<Usuario> readFile() throws Exception {
+        
+        List<Usuario> list = new ArrayList();
+        boolean flag = false;
+        try {
+
+            File file = new File("psp2_db\\Usuario.txt");
+            FileReader read;
+            BufferedReader buffered;
+
+            if(file.exists()) {
+
+                read = new FileReader(file);
+                buffered = new BufferedReader(read);
+                String datos;
+
+                while((datos = buffered.readLine()) != null) {
+                    String[] listaDatos = datos.split(";");
+                    Usuario usuario = new Usuario();
+                    
+                    usuario.setIdentificacion(Integer.parseInt(listaDatos[0]));
+                    usuario.setNombre(listaDatos[1]);
+                    usuario.setApellido(listaDatos[2]);
+                    usuario.setUsuario(listaDatos[3]);
+                    usuario.setContraseña(listaDatos[4]);
+                    usuario.setTipoUsurio(listaDatos[5]);
+                    list.add(usuario);
+                }
+                read.close();
+                buffered.close();
+                flag = true;
+            }
+        }
+        catch(IOException e)
+        {
+            System.out.println("A ocurrido un error");
+            e.printStackTrace();
+        }
+        return flag ? list : null;
     }
 
 }

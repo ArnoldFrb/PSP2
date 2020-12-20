@@ -5,6 +5,7 @@
  */
 package datos;
 
+import DAO.TareaDAO;
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -15,8 +16,9 @@ import logica.Tarea;
  *
  * @author arnol
  */
-public class TareasData {
-    public static void WriteFile(Tarea tarea) throws Exception
+public class TareasData implements TareaDAO {
+    
+    public String writeFile(Tarea tarea) throws Exception
     {
         try
         {
@@ -44,11 +46,13 @@ public class TareasData {
             System.out.println("A ocurrido un error");
             e.printStackTrace();
         }
+        return "Todo melo";
     }
     
     public List<Tarea> readFile() throws Exception
     {
-        List<Tarea> list = new List<Tarea>();
+        List<Tarea> list = new ArrayList();
+        boolean flag = false;
         try
         {
             File file = new File("psp2_db\\Ingenieros.txt");
@@ -64,6 +68,7 @@ public class TareasData {
                 {
                     String[] listDatos = datos.split(";");
                     Tarea tarea = new Tarea();
+                    
                     tarea.setDescripcionTarea(listDatos[0]);
                     tarea.setDuracionTarea(Integer.parseInt(listDatos[1]));
                     tarea.setFaseProyecto(listDatos[2]);
@@ -75,7 +80,7 @@ public class TareasData {
                 }
                 read.close();
                 buffered.close();
-                return list;
+                flag = true;
             }
             else
             {
@@ -87,6 +92,55 @@ public class TareasData {
             System.out.println("A ocurrido un error");
             e.printStackTrace();
         }
-        return null;
+        return flag ? list : null;
+    }
+    
+    public Tarea queryFile(int queryData) throws Exception
+    {
+        Tarea tarea = new Tarea();
+        boolean flag = false;
+        
+        try
+        {
+            File file = new File("psp2_db\\Ingenieros.txt");
+            FileReader read;
+            BufferedReader buffered;
+            if(file.exists())
+            {
+                read = new FileReader(file);
+                buffered = new BufferedReader(read);
+                
+                String datos;
+                while((datos = buffered.readLine()) != null)
+                {
+                    String[] listDatos = datos.split(";");
+                    if(queryData == Integer.parseInt(listDatos[0]))
+                    {
+                        tarea.setDescripcionTarea(listDatos[0]);
+                        tarea.setDuracionTarea(Integer.parseInt(listDatos[1]));
+                        tarea.setFaseProyecto(listDatos[2]);
+                        tarea.setIngeniero(listDatos[3]);
+                        tarea.setFechaInicio(new SimpleDateFormat("dd/MM/yyyy").parse(listDatos[4]));
+                        tarea.setRolRequerido(listDatos[5]);
+                        tarea.setEstadoTarea(listDatos[6]);
+                        
+                        flag = true;
+                    }
+                }
+                read.close();
+                buffered.close();
+                return tarea;
+            }
+            else
+            {
+                System.out.println("No hay datos");
+            }
+        }
+        catch(IOException e)
+        {
+            System.out.println("A ocurrido un error");
+            e.printStackTrace();
+        }
+        return flag ? tarea : null;
     }
 }

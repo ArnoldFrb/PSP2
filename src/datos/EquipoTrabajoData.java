@@ -69,7 +69,7 @@ public class EquipoTrabajoData {
         }
         return null;
     }
-    public ArrayList<Tareas> ConsultarTareasEquipo(int id) throws Exception {
+    public ArrayList<Tarea> ConsultarTareasEquipo(int id) throws Exception {
         try {
             EquipoTrabajo equipoTrabajo = new EquipoTrabajo();
 
