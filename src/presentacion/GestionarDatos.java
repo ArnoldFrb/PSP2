@@ -16,6 +16,7 @@ public class GestionarDatos extends javax.swing.JFrame {
      */
     public GestionarDatos() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

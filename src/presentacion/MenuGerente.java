@@ -16,6 +16,7 @@ public class MenuGerente extends javax.swing.JFrame {
      */
     public MenuGerente() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

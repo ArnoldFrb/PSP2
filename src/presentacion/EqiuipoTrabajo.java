@@ -9,6 +9,7 @@ public class EqiuipoTrabajo extends javax.swing.JFrame {
      */
     public EqiuipoTrabajo() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

@@ -16,6 +16,7 @@ public class GestionarTareas extends javax.swing.JFrame {
      */
     public GestionarTareas() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

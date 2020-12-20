@@ -16,6 +16,7 @@ public class GestionarProyectos extends javax.swing.JFrame {
      */
     public GestionarProyectos() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
