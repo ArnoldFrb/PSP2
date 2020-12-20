@@ -3,24 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package datos;
 import java.io.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 import logica.Ingeniero;
-
+import logica.EquipoTrabajo;
 /**
  *
- * @author arnol
+ * @author Cristo Te Ama...!!
  */
-public class IngenierosDatos {
-    
-    public static void WriteFile(Ingeniero ing) throws Exception
-    {
-        try
-        {
-            File file = new File("psp2_db\\Ingenieros.txt");
+public class EquipoTrabajoData {
+    public String Guardar(EquipoTrabajo equipoTrabajo) throws Exception {
+        try {
+            File file = new File("psp2_db\\EquiposDeTrabajo.txt");
             FileWriter write;
             BufferedWriter buffered;
             if(file.exists())
@@ -28,7 +26,7 @@ public class IngenierosDatos {
                 write = new FileWriter(file, true);
                 buffered = new BufferedWriter(write);
                 buffered.newLine();
-                buffered.write(ing.datosParaArchivo());
+                buffered.write(equipoTrabajo.datosParaArchivo());
             }
             else
             {
@@ -38,48 +36,40 @@ public class IngenierosDatos {
             }
             write.close();
             buffered.close();
+
+            return "Todo melo";
         }
         catch(IOException e)
         {
-            System.out.println("A ocurrido un error");
-            e.printStackTrace();
+            return e.toString();
         }
     }
     
-    public List<Ingeniero> readFile() throws Exception
-    {
-        List<Ingeniero> list = new ArrayList();
-        try
-        {
-            File file = new File("psp2_db\\Ingenieros.txt");
+    public EquipoTrabajo Consultar(String id) throws Exception {
+        try {
+            EquipoTrabajo equipoTrabajo = new EquipoTrabajo();
+
+            File file = new File("psp2_db\\EquiposDeTrabajo.txt");
             FileReader read;
             BufferedReader buffered;
-            if(file.exists())
-            {
+            if(file.exists()) {
+
                 read = new FileReader(file);
                 buffered = new BufferedReader(read);
-                
                 String datos;
-                while((datos = buffered.readLine()) != null)
-                {
-                    String[] listDatos = datos.split(";");
-                    Ingeniero ing = new Ingeniero();
+
+                while((datos = buffered.readLine()) != null) {
+                    String[] listaDatos = datos.split(";");
                     
-                    ing.setIdentificacionIngeniero(listDatos[0]);
-                    ing.setNombreIngeniero(listDatos[1]);
-                    ing.setApellidoIngeniero(listDatos[2]);
-                    ing.setEdadIngeniero(Integer.parseInt(listDatos[3]));
-                    ing.setEspecailidadIngeniero(listDatos[4]);
-                    ing.setAñosExperiencia(Integer.parseInt(listDatos[4]));
-                    list.add(ing);
-                }
+                    equipoTrabajo.setIdEquipoTrabajo(Integer.parseInt(listaDatos[0]));
+            }
                 read.close();
                 buffered.close();
-                return list;
+                return equipoTrabajo;
             }
             else
             {
-                System.out.println("No hay datos");
+                return null;
             }
         }
         catch(IOException e)

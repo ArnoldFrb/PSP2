@@ -4,22 +4,21 @@
  * and open the template in the editor.
  */
 package datos;
-
 import java.io.*;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import logica.Ingeniero;
-import logica.Tarea;
 
 /**
  *
  * @author arnol
  */
-public class TareasData {
-    public String Guardar(Tarea tarea) throws Exception {
+public class IngenieroData {
+    
+    public String Guardar(Ingeniero ingeniero) throws Exception {
         try {
-            File file = new File("psp2_db\\Tareas.txt");
+            File file = new File("psp2_db\\Ingenieros.txt");
             FileWriter write;
             BufferedWriter buffered;
             if(file.exists())
@@ -27,7 +26,7 @@ public class TareasData {
                 write = new FileWriter(file, true);
                 buffered = new BufferedWriter(write);
                 buffered.newLine();
-                buffered.write(tarea.datosParaArchivo());
+                buffered.write(ingeniero.datosParaArchivo());
             }
             else
             {
@@ -46,11 +45,11 @@ public class TareasData {
         }
     }
     
-    public Tarea Consultar(String id) throws Exception {
+    public Ingeniero Consultar(String id) throws Exception {
         try {
-            Tarea tarea = new Tarea();
+            Ingeniero ingeniero = new Ingeniero();
 
-            File file = new File("psp2_db\\Tareas.txt");
+            File file = new File("psp2_db\\Ingenieros.txt");
             FileReader read;
             BufferedReader buffered;
             if(file.exists()) {
@@ -62,19 +61,16 @@ public class TareasData {
                 while((datos = buffered.readLine()) != null) {
                     String[] listaDatos = datos.split(";");
                     
-                    tarea.setIdentificadorTarea(Integer.parseInt(listaDatos[0]));
-                    tarea.setDescripcionTarea(listaDatos[1]);
-                    tarea.setDuracionTarea(Integer.parseInt(listaDatos[2]));
-                    tarea.setFaseProyecto(listaDatos[3]);
-                    tarea.setIngeniero(listaDatos[4]);
-                    tarea.setFechaInicio(new SimpleDateFormat("dd/MM/yyyy").parse(listaDatos[5]));
-                    tarea.setEstadoTarea(listaDatos[6]);
-                    tarea.setRolRequerido(listaDatos[7]);
-                    tarea.setJustificacion(listaDatos[8]);
+                    ingeniero.setIdentificacionIngeniero(listaDatos[0]);
+                    ingeniero.setNombreIngeniero(listaDatos[1]);
+                    ingeniero.setApellidoIngeniero(listaDatos[2]);
+                    ingeniero.setEdadIngeniero(Integer.parseInt(listaDatos[3]));
+                    ingeniero.setAñosExperiencia(Integer.parseInt(listaDatos[4]));
+                    ingeniero.setEspecailidadIngeniero(listaDatos[5]);
             }
                 read.close();
                 buffered.close();
-                return tarea;
+                return ingeniero;
             }
             else
             {
