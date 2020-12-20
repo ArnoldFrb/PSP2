@@ -104,7 +104,7 @@
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jtfUsuario4" min="-2" pref="253" max="-2" attributes="0"/>
+                          <Component id="jTFIdentificacion" min="-2" pref="253" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
@@ -114,17 +114,17 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                                           <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jtfUsuario1" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jtfUsuario2" alignment="0" min="-2" pref="118" max="-2" attributes="0"/>
+                                          <Component id="jTFNombre" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jTFUsuarios" alignment="0" min="-2" pref="118" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jtfUsuario3" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jTFApellidos" alignment="0" max="32767" attributes="0"/>
                                       <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jtfContraseña1" alignment="0" min="-2" pref="118" max="-2" attributes="0"/>
+                                      <Component id="jTFContraseña" alignment="0" min="-2" pref="118" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -140,7 +140,7 @@
                   <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                   <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jtfUsuario4" min="-2" pref="32" max="-2" attributes="0"/>
+                  <Component id="jTFIdentificacion" min="-2" pref="32" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
@@ -148,23 +148,23 @@
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jtfUsuario1" min="-2" pref="32" max="-2" attributes="0"/>
+                                  <Component id="jTFNombre" min="-2" pref="32" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jtfUsuario3" min="-2" pref="32" max="-2" attributes="0"/>
+                                  <Component id="jTFApellidos" min="-2" pref="32" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jtfUsuario2" min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="jTFUsuarios" min="-2" pref="32" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jtfContraseña1" min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="jTFContraseña" min="-2" pref="32" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="80" max="32767" attributes="0"/>
@@ -180,7 +180,7 @@
             <Property name="text" type="java.lang.String" value="Contrase&#xf1;a"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jtfContrase&#xf1;a1">
+        <Component class="javax.swing.JTextField" name="jTFContrase&#xf1;a">
           <Properties>
             <Property name="name" type="java.lang.String" value="jtfContrase&#xf1;a" noResource="true"/>
           </Properties>
@@ -198,7 +198,7 @@
             <Property name="text" type="java.lang.String" value="Usuario"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jtfUsuario2">
+        <Component class="javax.swing.JTextField" name="jTFUsuarios">
           <Properties>
             <Property name="name" type="java.lang.String" value="jtfUsuario" noResource="true"/>
           </Properties>
@@ -208,7 +208,7 @@
             <Property name="text" type="java.lang.String" value="Identificacion"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jtfUsuario4">
+        <Component class="javax.swing.JTextField" name="jTFIdentificacion">
           <Properties>
             <Property name="name" type="java.lang.String" value="jtfUsuario" noResource="true"/>
           </Properties>
@@ -218,7 +218,7 @@
             <Property name="text" type="java.lang.String" value="Nombre"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jtfUsuario1">
+        <Component class="javax.swing.JTextField" name="jTFNombre">
           <Properties>
             <Property name="name" type="java.lang.String" value="jtfUsuario" noResource="true"/>
           </Properties>
@@ -228,7 +228,7 @@
             <Property name="text" type="java.lang.String" value="Apallido"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jtfUsuario3">
+        <Component class="javax.swing.JTextField" name="jTFApellidos">
           <Properties>
             <Property name="name" type="java.lang.String" value="jtfUsuario" noResource="true"/>
           </Properties>
