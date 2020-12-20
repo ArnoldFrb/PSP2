@@ -113,16 +113,16 @@ public class Tarea {
 
     @Override
     public String toString() {
-        return "Tarea{" + 
-        "identificadorTarea=" + identificadorTarea + 
-        ", descripcionTarea=" + descripcionTarea + 
-        ", duracionTarea=" + duracionTarea + 
-        ", faseProyecto=" + faseProyecto + 
-        ", ingeniero=" + ingeniero + 
-        ", fechaInicio=" + fechaInicio + 
-        ", estadoTarea=" + estadoTarea + 
-        ", RolRequerido=" + RolRequerido + 
-        ", Justificacion=" + Justificacion + '}';
+        return "Tarea:" + 
+        "\nId de Tarea: " + identificadorTarea + 
+        "\nDescripcion de Tarea: " + descripcionTarea + 
+        "\nDuracion de Tarea: " + duracionTarea + 
+        "\nFase de Proyecto: " + faseProyecto + 
+        "\nIngeniero: " + ingeniero + 
+        "\nFecha de Inicio: " + fechaInicio + 
+        "\nEstado de Tarea: " + estadoTarea + 
+        "\nRol Requerido: " + RolRequerido + 
+        "\nJustificacion: " + Justificacion + '}';
     }
 
     public String datosParaArchivo(){

@@ -69,7 +69,13 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario:" + "\nIdentificacion: " + identificacion + "\nNombre: " + nombre + "\nApellido: " + apellido + "\nUsuaario: " + usuario + "\nContrasenia: " + contraseña + "\nTipoUsurio: " + tipoUsurio;
+        return "Usuario:" + 
+                "\nIdentificacion: " + identificacion + 
+                "\nNombre: " + nombre + 
+                "\nApellido: " + apellido + 
+                "\nUsuario: " + usuario + 
+                "\nContrasenia: " + contraseña + 
+                "\nTipoUsurio: " + tipoUsurio;
     }
 
     public String datosParaArchivo(){

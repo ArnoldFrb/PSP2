@@ -80,7 +80,13 @@ public class Ingeniero {
 
     @Override
     public String toString() {
-        return "Ingeniero{" + "identificacionIngeniero=" + identificacionIngeniero + ", nombreIngeniero=" + nombreIngeniero + ", apellidoIngeniero=" + apellidoIngeniero + ", edadIngeniero=" + edadIngeniero + ", a\u00f1osExperiencia=" + añosExperiencia + ", especailidadIngeniero=" + especailidadIngeniero + '}';
+        return "Ingeniero:" + 
+                "\nIdentificacion de Ingeniero: " + identificacionIngeniero + 
+                "\nNombre de Ingeniero: " + nombreIngeniero + 
+                "\nApellido de Ingeniero: " + apellidoIngeniero + 
+                "\nEdad de Ingeniero: " + edadIngeniero + 
+                "\na\u00f1os de Experiencia: " + añosExperiencia + 
+                "\nEspecailidad de Ingeniero: " + especailidadIngeniero + '}';
     }
 
     public String datosParaArchivo(){

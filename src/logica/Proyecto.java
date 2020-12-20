@@ -98,8 +98,17 @@ public class Proyecto {
 
     @Override
     public String toString() {
-        return "Proyecto{" + "nombreProyecto=" + nombreProyecto + ", listaTareas=" + listaTareas + ", duracionProyecto="
-                + duracionProyecto + ", fechaInicio=" + fechaInicio + ", fechaEntrega=" + fechaEntrega + '}';
+        return "Proyecto:" + 
+                "\nNombre de Proyecto: " + nombreProyecto + 
+                "\nDuracion de proyecto: " + duracionProyecto + 
+                "\nDuracion de Proyecto: " + duracionProyecto + 
+                "\nFecha de Inicio: " + fechaInicio + 
+                "\nFecha de Entrega: " + fechaEntrega +
+                "\nFecha de entrega Final: " + fechaFin +
+                "\nEstado de proyecto: " + Estado;
     }
 
+    public String datosParaArchivo(){
+        return this.nombreProyecto+";"+this.duracionProyecto+";"+this.duracionProyecto+";"+this.fechaInicio+";"+this.fechaEntrega+";"+this.fechaFin+";"+this.Estado+"\n";
+    }
 }
