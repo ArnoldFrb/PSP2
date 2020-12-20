@@ -13,7 +13,7 @@ import java.util.Collections;
  * @author juana
  */
 public class EquipoTrabajo implements InterfaceAñadirIngenieros {
-    
+
     private int idEquipoTrabajo;
     private String pendientes;
     private String Ejecutadas;
@@ -38,32 +38,30 @@ public class EquipoTrabajo implements InterfaceAñadirIngenieros {
     public void consultaGeneralTareasPendientes(Proyecto proyecto) {
         
         System.out.println("Lista de tareas pendientes: ");
-         for (Tarea tarea : proyecto.getListaTareas()) {
+        for (Tarea tarea : proyecto.getListaTareas()) {
             if(tarea.getEstadoTarea() == "pendiente")
             {
                 listaTareasPendientes.add(tarea);
             }
         }
-         
-         recorrerLista(listaTareasPendientes);
-         
+        recorrerLista(listaTareasPendientes);
     }
 
     public void consultaGeneralTareasRealizadas(Proyecto proyecto) {
-       System.out.println("Lista de tareas ejecutadas: ");
-       
+        System.out.println("Lista de tareas ejecutadas: ");
+
         for (Tarea tarea : proyecto.getListaTareas()) {
             if(tarea.getEstadoTarea() == "ejecutada")
             {
                 listaTareasEjecutadas.add(tarea);
             }
         }
-         
-         recorrerLista(listaTareasPendientes);
+
+        recorrerLista(listaTareasPendientes);
     }
 
     public void FinalizarTarea(Tarea tarea) {
-       tarea.setEstadoTarea("ejecutada");
+        tarea.setEstadoTarea("ejecutada");
     }
     
     public void recorrerLista(ArrayList<Tarea> listaTareas)
@@ -71,13 +69,12 @@ public class EquipoTrabajo implements InterfaceAñadirIngenieros {
         for (Tarea tarea : listaTareas) {
             System.out.println(tarea.toString());
         }
-   
+
     }
 
     @Override
     public void añadirIngeniero(Ingeniero ingeniero) {
         listaIngenieros.add(ingeniero);
     }
-    
-    
+
 }
