@@ -5,6 +5,8 @@
  */
 package datos;
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import logica.IngenierosLogica;
 
@@ -32,7 +34,7 @@ public class IngenierosDatos {
             {
                 write = new FileWriter(file, true);
                 buffered = new BufferedWriter(write);
-                buffered.write(0);
+                buffered.write("HOLA MUNDO");
             }
             write.close();
             buffered.close();
@@ -42,5 +44,48 @@ public class IngenierosDatos {
             System.out.println("A ocurrido un error");
             e.printStackTrace();
         }
+    }
+    
+    public List<IngenierosLogica> readFile() throws Exception
+    {
+        List<IngenierosLogica> list = new ArrayList();
+        try
+        {
+            File file = new File("psp2_db\\Ingenieros.txt");
+            FileReader read;
+            BufferedReader buffered;
+            if(file.exists())
+            {
+                read = new FileReader(file);
+                buffered = new BufferedReader(read);
+                
+                String datos;
+                while((datos = buffered.readLine()) != null)
+                {
+                    String[] listDatos = datos.split(";");
+                    IngenierosLogica ing = new IngenierosLogica();
+                    ing.setIdentificacion(Integer.parseInt(listDatos[0]));
+                    ing.setNombre(listDatos[1]);
+                    ing.setApellido(listDatos[2]);
+                    ing.setEdad(Integer.parseInt(listDatos[3]));
+                    ing.setEspecialidad(listDatos[4]);
+                    ing.setAñosExperiencia(Integer.parseInt(listDatos[4]));
+                    list.add(ing);
+                }
+                read.close();
+                buffered.close();
+                return list;
+            }
+            else
+            {
+                System.out.println("No hay datos");
+            }
+        }
+        catch(IOException e)
+        {
+            System.out.println("A ocurrido un error");
+            e.printStackTrace();
+        }
+        return null;
     }
 }
