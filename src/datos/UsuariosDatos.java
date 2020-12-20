@@ -27,7 +27,7 @@ public class UsuariosDatos {
                 write = new FileWriter(file, true);
                 buffered = new BufferedWriter(write);
                 buffered.newLine();
-                buffered.write("HOLA MUNDO");
+                buffered.write(user.datosParaArchivo());
             }
             else
             {
