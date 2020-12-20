@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package datos;
 import java.io.*;
@@ -11,10 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import logica.Ingeniero;
 import logica.EquipoTrabajo;
-/**
- *
- * @author Cristo Te Ama...!!
- */
+
 public class EquipoTrabajoData {
     public String Guardar(EquipoTrabajo equipoTrabajo) throws Exception {
         try {
@@ -26,13 +18,11 @@ public class EquipoTrabajoData {
                 write = new FileWriter(file, true);
                 buffered = new BufferedWriter(write);
                 buffered.newLine();
-                //buffered.write(equipoTrabajo.datosParaArchivo());
             }
             else
             {
                 write = new FileWriter(file, true);
                 buffered = new BufferedWriter(write);
-                //buffered.write(equipoTrabajo.datosParaArchivo());
             }
             write.close();
             buffered.close();
