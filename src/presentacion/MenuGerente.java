@@ -29,11 +29,11 @@ public class MenuGerente extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        jPGestionarProyecto = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
+        jPGestionarEquipo = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
+        jPGestionarUsuarios = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -42,62 +42,78 @@ public class MenuGerente extends javax.swing.JFrame {
 
         jLabel1.setText("Menu Gerente");
 
+        jPGestionarProyecto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPGestionarProyectoMouseClicked(evt);
+            }
+        });
+
         jLabel2.setText("Gestionar proyecto");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPGestionarProyectoLayout = new javax.swing.GroupLayout(jPGestionarProyecto);
+        jPGestionarProyecto.setLayout(jPGestionarProyectoLayout);
+        jPGestionarProyectoLayout.setHorizontalGroup(
+            jPGestionarProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPGestionarProyectoLayout.createSequentialGroup()
                 .addGap(51, 51, 51)
                 .addComponent(jLabel2)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+        jPGestionarProyectoLayout.setVerticalGroup(
+            jPGestionarProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPGestionarProyectoLayout.createSequentialGroup()
                 .addContainerGap(18, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addContainerGap())
         );
 
-        jPanel3.setPreferredSize(new java.awt.Dimension(206, 43));
+        jPGestionarEquipo.setPreferredSize(new java.awt.Dimension(206, 43));
+        jPGestionarEquipo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPGestionarEquipoMouseClicked(evt);
+            }
+        });
 
         jLabel3.setText("Gestionar Equipo");
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPGestionarEquipoLayout = new javax.swing.GroupLayout(jPGestionarEquipo);
+        jPGestionarEquipo.setLayout(jPGestionarEquipoLayout);
+        jPGestionarEquipoLayout.setHorizontalGroup(
+            jPGestionarEquipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPGestionarEquipoLayout.createSequentialGroup()
                 .addGap(59, 59, 59)
                 .addComponent(jLabel3)
                 .addContainerGap(56, Short.MAX_VALUE))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+        jPGestionarEquipoLayout.setVerticalGroup(
+            jPGestionarEquipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPGestionarEquipoLayout.createSequentialGroup()
                 .addContainerGap(18, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addContainerGap())
         );
 
-        jPanel4.setPreferredSize(new java.awt.Dimension(206, 43));
+        jPGestionarUsuarios.setPreferredSize(new java.awt.Dimension(206, 43));
+        jPGestionarUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPGestionarUsuariosMouseClicked(evt);
+            }
+        });
 
         jLabel4.setText("Gestion de Usuarios");
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPGestionarUsuariosLayout = new javax.swing.GroupLayout(jPGestionarUsuarios);
+        jPGestionarUsuarios.setLayout(jPGestionarUsuariosLayout);
+        jPGestionarUsuariosLayout.setHorizontalGroup(
+            jPGestionarUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPGestionarUsuariosLayout.createSequentialGroup()
                 .addContainerGap(53, Short.MAX_VALUE)
                 .addComponent(jLabel4)
                 .addGap(48, 48, 48))
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        jPGestionarUsuariosLayout.setVerticalGroup(
+            jPGestionarUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPGestionarUsuariosLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jLabel4)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -113,14 +129,14 @@ public class MenuGerente extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jPGestionarUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jPGestionarEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jPGestionarProyecto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(75, 75, 75)
@@ -133,12 +149,12 @@ public class MenuGerente extends javax.swing.JFrame {
                 .addGap(34, 34, 34)
                 .addComponent(jLabel1)
                 .addGap(32, 32, 32)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPGestionarProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPGestionarEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addComponent(jPGestionarUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -152,11 +168,35 @@ public class MenuGerente extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jPGestionarProyectoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPGestionarProyectoMouseClicked
+        // TODO add your handling code here:
+        
+        new MenuGerente().setVisible(false);
+        new GestionarProyectos().setVisible(true);
+    }//GEN-LAST:event_jPGestionarProyectoMouseClicked
+
+    private void jPGestionarEquipoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPGestionarEquipoMouseClicked
+        // TODO add your handling code here:
+        
+        new MenuGerente().setVisible(false);
+        new EqiuipoTrabajo().setVisible(true);
+    }//GEN-LAST:event_jPGestionarEquipoMouseClicked
+
+    private void jPGestionarUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPGestionarUsuariosMouseClicked
+        // TODO add your handling code here:
+        
+        new MenuGerente().setVisible(false);
+        new GestionarUsuarios().setVisible(true);
+    }//GEN-LAST:event_jPGestionarUsuariosMouseClicked
 
     /**
      * @param args the command line arguments
@@ -199,9 +239,9 @@ public class MenuGerente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPGestionarEquipo;
+    private javax.swing.JPanel jPGestionarProyecto;
+    private javax.swing.JPanel jPGestionarUsuarios;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     // End of variables declaration//GEN-END:variables
 }

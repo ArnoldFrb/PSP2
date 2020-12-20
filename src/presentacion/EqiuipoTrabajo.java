@@ -49,6 +49,7 @@ public class EqiuipoTrabajo extends javax.swing.JFrame {
         jScrollPane6 = new javax.swing.JScrollPane();
         jTable6 = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
+        jBRegresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -219,7 +220,14 @@ public class EqiuipoTrabajo extends javax.swing.JFrame {
 
         jTabbedPane6.addTab("Ver Equipos", jPanel14);
 
-        jLabel5.setText("Gestionar Gestionar");
+        jLabel5.setText("Gestionar Equipo");
+
+        jBRegresar.setText("Regresar");
+        jBRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBRegresarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
@@ -230,16 +238,20 @@ public class EqiuipoTrabajo extends javax.swing.JFrame {
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTabbedPane6)
                     .addGroup(jPanel13Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
+                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jBRegresar))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel13Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(6, 6, 6)
+                .addComponent(jBRegresar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTabbedPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -274,6 +286,13 @@ public class EqiuipoTrabajo extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jBRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBRegresarActionPerformed
+        // TODO add your handling code here:
+        
+        new EqiuipoTrabajo().setVisible(false);
+        new MenuGerente().setVisible(true);
+    }//GEN-LAST:event_jBRegresarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -311,6 +330,7 @@ public class EqiuipoTrabajo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBRegresar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;

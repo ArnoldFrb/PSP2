@@ -51,6 +51,7 @@ public class GestionarUsuarios extends javax.swing.JFrame {
         jtfUsuario4 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jBRegresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -112,7 +113,7 @@ public class GestionarUsuarios extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jTabbedPane6.addTab("Crear Equipo", jPanel21);
+        jTabbedPane6.addTab("Ver Equipo", jPanel21);
 
         jPanel14.setBackground(new java.awt.Color(153, 255, 153));
 
@@ -221,9 +222,16 @@ public class GestionarUsuarios extends javax.swing.JFrame {
                     .addContainerGap(75, Short.MAX_VALUE)))
         );
 
-        jTabbedPane6.addTab("Ver Equipos", jPanel14);
+        jTabbedPane6.addTab("Crear Equipos", jPanel14);
 
-        jLabel5.setText("Gestionar Gestionar");
+        jLabel5.setText("Gestionar Equipo");
+
+        jBRegresar.setText("Regresar");
+        jBRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBRegresarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
@@ -234,16 +242,20 @@ public class GestionarUsuarios extends javax.swing.JFrame {
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTabbedPane6)
                     .addGroup(jPanel13Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
+                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jBRegresar))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel13Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(6, 6, 6)
+                .addComponent(jBRegresar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTabbedPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -278,6 +290,13 @@ public class GestionarUsuarios extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jBRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBRegresarActionPerformed
+        // TODO add your handling code here:
+        
+        new GestionarUsuarios().setVisible(false);
+        new MenuGerente().setVisible(true);
+    }//GEN-LAST:event_jBRegresarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -315,6 +334,7 @@ public class GestionarUsuarios extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBRegresar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;

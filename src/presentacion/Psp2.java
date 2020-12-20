@@ -198,6 +198,16 @@ public class Psp2 extends javax.swing.JFrame {
 
     private void jbtIniciarSeccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtIniciarSeccionActionPerformed
         // TODO add your handling code here:
+        if(true)
+        {
+            new Psp2().setVisible(false);
+            new MenuGerente().setVisible(true);
+        }
+        else
+        {
+            new Psp2().setVisible(false);
+            new MenuGerente().setVisible(true);
+        }
     }//GEN-LAST:event_jbtIniciarSeccionActionPerformed
 
     private void jbtRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtRegistrarseActionPerformed
