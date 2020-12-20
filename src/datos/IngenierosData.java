@@ -1,13 +1,14 @@
 
 package datos;
+import DAO.IngenieroDAO;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import logica.Ingeniero;
 
-public class IngenierosData {
+public class IngenierosData implements IngenieroDAO{
     
-    public static void writeFile(Ingeniero ing) throws Exception
+    public String writeFile(Ingeniero ing) throws Exception
     {
         try
         {
@@ -35,6 +36,8 @@ public class IngenierosData {
             System.out.println("A ocurrido un error");
             e.printStackTrace();
         }
+        
+        return "HELLO WORLD";
     }
     
     public List<Ingeniero> readFile() throws Exception
