@@ -7,8 +7,11 @@ import java.util.List;
 import logica.Ingeniero;
 import logica.EquipoTrabajo;
 
-public class EquipoTrabajoData {
-    public String Guardar(EquipoTrabajo equipoTrabajo) throws Exception {
+public class EquipoTrabajoData implements EquipotrabajoDAO {
+
+    public EquipoTrabajoData() {};
+
+    public String writeFile(EquipoTrabajo equipoTrabajo) throws Exception {
         try {
             File file = new File("psp2_db\\EquiposDeTrabajo.txt");
             FileWriter write;
@@ -27,7 +30,7 @@ public class EquipoTrabajoData {
             write.close();
             buffered.close();
 
-            return "Todo melo";
+            return "Se ha guardado correctamente";
         }
         catch(IOException e)
         {
@@ -35,10 +38,9 @@ public class EquipoTrabajoData {
         }
     }
     
-    public EquipoTrabajo Consultar(int id) throws Exception {
+    public EquipoTrabajo queryFile(int id) throws Exception {
+        EquipoTrabajo equipoTrabajo = new EquipoTrabajo();
         try {
-            EquipoTrabajo equipoTrabajo = new EquipoTrabajo();
-
             File file = new File("psp2_db\\EquiposDeTrabajo.txt");
             FileReader read;
             BufferedReader buffered;
@@ -50,16 +52,12 @@ public class EquipoTrabajoData {
 
                 while((datos = buffered.readLine()) != null) {
                     String[] listaDatos = datos.split(";");
-                    
-                    equipoTrabajo.setIdEquipoTrabajo(Integer.parseInt(listaDatos[0]));
+                    if(Integer.parseInt(listaDatos[0]) == id){
+                        equipoTrabajo.setIdEquipoTrabajo(Integer.parseInt(listaDatos[0]));
+                    }
             }
                 read.close();
                 buffered.close();
-                return equipoTrabajo;
-            }
-            else
-            {
-                return null;
             }
         }
         catch(IOException e)
@@ -67,13 +65,13 @@ public class EquipoTrabajoData {
             System.out.println("A ocurrido un error");
             e.printStackTrace();
         }
-        return null;
+        return equipoTrabajo;
     }
-    public ArrayList<Tarea> ConsultarTareasEquipo(int id) throws Exception {
+    public ArrayList<Tarea> queryTareasBasicasEquipo(int id) throws Exception {
+        ArrayList<Tarea> tareasEquipoTrabajo = new ArrayList();
         try {
-            EquipoTrabajo equipoTrabajo = new EquipoTrabajo();
 
-            File file = new File("psp2_db\\TareasEquiposDeTrabajo.txt");
+            File file = new File("psp2_db\\TareasBasicasEquiposDeTrabajo.txt");
             FileReader read;
             BufferedReader buffered;
             if(file.exists()) {
@@ -83,17 +81,16 @@ public class EquipoTrabajoData {
                 String datos;
 
                 while((datos = buffered.readLine()) != null) {
+
                     String[] listaDatos = datos.split(";");
-                    
-                    equipoTrabajo.setIdEquipoTrabajo(Integer.parseInt(listaDatos[0]));
+
+                    if(Integer.parseInt(listaDatos[0]) == id) {
+                        Tarea tarea = new TareaBasica();
+                        tarea.setIdEquipoTrabajo(Integer.parseInt(listaDatos[0]));
+                    }
             }
                 read.close();
                 buffered.close();
-                return equipoTrabajo;
-            }
-            else
-            {
-                return null;
             }
         }
         catch(IOException e)
@@ -101,11 +98,13 @@ public class EquipoTrabajoData {
             System.out.println("A ocurrido un error");
             e.printStackTrace();
         }
-        return null;
+        return tareasEquipoTrabajo;
     }
-    public ArrayList<Ingeniero> ConsultarIngenierosEquipo(int id) throws Exception {
+    public ArrayList<Ingeniero> queryIngenierosEquipo(int id) throws Exception {
+
+        ArrayList<Inginero> ingeniero = new ArrayList<Inginero>();
+
         try {
-            EquipoTrabajo equipoTrabajo = new EquipoTrabajo();
 
             File file = new File("psp2_db\\IngenierosEquiposDeTrabajo.txt");
             FileReader read;
@@ -118,23 +117,21 @@ public class EquipoTrabajoData {
 
                 while((datos = buffered.readLine()) != null) {
                     String[] listaDatos = datos.split(";");
-                    
-                    equipoTrabajo.setIdEquipoTrabajo(Integer.parseInt(listaDatos[0]));
+                    if(Integer.parseInt(listaDatos[0]) == id){
+                        Inginero ingeniero = new Inginero();
+                        equipoTrabajo.setIdEquipoTrabajo(Integer.parseInt(listaDatos[0]));
+                    }
             }
                 read.close();
                 buffered.close();
-                return equipoTrabajo;
             }
-            else
-            {
-                return null;
-            }
+
         }
         catch(IOException e)
         {
             System.out.println("A ocurrido un error");
             e.printStackTrace();
         }
-        return null;
+        return equipoTrabajo;
     }
 }
