@@ -83,7 +83,7 @@ public class Psp2 extends javax.swing.JFrame {
 
         jTFNombre.setName("jtfUsuario"); // NOI18N
 
-        jLabel6.setText("Apallido");
+        jLabel6.setText("Apellido");
 
         jTFApellidos.setName("jtfUsuario"); // NOI18N
 
