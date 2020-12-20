@@ -68,7 +68,7 @@ public class UsuariosDatos {
                     user.setApellido(listDatos[2]);
                     user.setContraseña(listDatos[3]);
                     user.setContraseña(listDatos[4]);
-                    user.setTipoUsuario(Boolean.parseBoolean(listDatos[5]));
+                    user.setTipoUsurio(Boolean.parseBoolean(listDatos[5]));
                     list.add(user);
                 }
                 read.close();

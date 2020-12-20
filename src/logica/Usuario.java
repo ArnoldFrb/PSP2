@@ -15,16 +15,18 @@ public class Usuario {
     public String apellido;
     public String usuario;
     public String contraseña;
+    public boolean tipoUsurio;
 
     public Usuario() {
     }
 
-    public Usuario(int identificacion, String nombre, String apellido, String usuario, String contraseña) {
+    public Usuario(int identificacion, String nombre, String apellido, String usuario, String contraseña, boolean tipoUsurio) {
         this.identificacion = identificacion;
         this.nombre = nombre;
         this.apellido = apellido;
         this.usuario = usuario;
         this.contraseña = contraseña;
+        this.tipoUsurio = tipoUsurio;
     }
 
     public int getIdentificacion() {
@@ -47,6 +49,10 @@ public class Usuario {
         return contraseña;
     }
 
+    public boolean isTipoUsurio() {
+        return tipoUsurio;
+    }
+
     public void setIdentificacion(int identificacion) {
         this.identificacion = identificacion;
     }
@@ -66,14 +72,18 @@ public class Usuario {
     public void setContraseña(String contraseña) {
         this.contraseña = contraseña;
     }
+
+    public void setTipoUsurio(boolean tipoUsurio) {
+        this.tipoUsurio = tipoUsurio;
+    }
     
     @Override
     public String toString() {
-        return "Usuario:" + "\nIdentificacion: " + identificacion + "\nNombre: " + nombre + "\nApellido: " + apellido + "\nUsuaario: " + usuario + "\nContrasenia: " + contraseña;
+        return "Usuario:" + "\nIdentificacion: " + identificacion + "\nNombre: " + nombre + "\nApellido: " + apellido + "\nUsuaario: " + usuario + "\nContrasenia: " + contraseña + "\nTipoUsurio: " + tipoUsurio;
     }
     
     
     public String datosParaArchivo(){
-        return this.identificacion+";"+this.nombre+";"+this.apellido+";"+this.usuario+";"+this.contraseña+"\n";
+        return this.identificacion+";"+this.nombre+";"+this.apellido+";"+this.usuario+";"+this.contraseña+";"+this.tipoUsurio+"\n";
     }
 }
