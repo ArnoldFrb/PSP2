@@ -111,8 +111,10 @@ public abstract class Tarea {
 
     @Override
     public String toString() {
-        return "Tarea{" + "identificadorTarea=" + identificadorTarea + ", descripcionTarea=" + descripcionTarea + ", duracionTarea=" + duracionTarea + ", faseProyecto=" + faseProyecto + ", ingeniero=" + ingeniero + ", fechaInicio=" + fechaInicio + ", estadoTarea=" + estadoTarea + ", RolRequerido=" + RolRequerido + '}';
+        return "Tarea{" + "identificadorTarea=" + identificadorTarea + ", descripcionTarea=" + descripcionTarea + ", duracionTarea=" + duracionTarea + ", faseProyecto=" + faseProyecto + ", ingeniero=" + ingeniero + ", fechaInicio=" + fechaInicio + ", estadoTarea=" + estadoTarea + ", RolRequerido=" + RolRequerido + ", Justificacion=" + Justificacion + '}';
     }
 
-    
+    public String datosParaArchivo(){
+        return this.identificadorTarea+";"+this.descripcionTarea+";"+this.duracionTarea+";"+this.faseProyecto+";"+this.ingeniero+";"+this.fechaInicio+";"+this.estadoTarea+";"+this.RolRequerido+";"+this.Justificacion+"\n";
+    }
 }
