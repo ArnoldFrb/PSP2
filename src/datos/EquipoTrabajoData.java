@@ -1,13 +1,12 @@
 
 package datos;
 import java.io.*;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.List;
 import logica.Ingeniero;
 import logica.EquipoTrabajo;
+import DAO.*;
 
-public class EquipoTrabajoData implements EquipotrabajoDAO {
+public class EquipoTrabajoData implements EquipoTrabajoDAO {
 
     public EquipoTrabajoData() {};
 
@@ -67,42 +66,10 @@ public class EquipoTrabajoData implements EquipotrabajoDAO {
         }
         return equipoTrabajo;
     }
-    public ArrayList<Tarea> queryTareasBasicasEquipo(int id) throws Exception {
-        ArrayList<Tarea> tareasEquipoTrabajo = new ArrayList();
-        try {
 
-            File file = new File("psp2_db\\TareasBasicasEquiposDeTrabajo.txt");
-            FileReader read;
-            BufferedReader buffered;
-            if(file.exists()) {
-
-                read = new FileReader(file);
-                buffered = new BufferedReader(read);
-                String datos;
-
-                while((datos = buffered.readLine()) != null) {
-
-                    String[] listaDatos = datos.split(";");
-
-                    if(Integer.parseInt(listaDatos[0]) == id) {
-                        Tarea tarea = new TareaBasica();
-                        tarea.setIdEquipoTrabajo(Integer.parseInt(listaDatos[0]));
-                    }
-            }
-                read.close();
-                buffered.close();
-            }
-        }
-        catch(IOException e)
-        {
-            System.out.println("A ocurrido un error");
-            e.printStackTrace();
-        }
-        return tareasEquipoTrabajo;
-    }
     public ArrayList<Ingeniero> queryIngenierosEquipo(int id) throws Exception {
 
-        ArrayList<Inginero> ingeniero = new ArrayList<Inginero>();
+        ArrayList<Ingeniero> listaIngeniero = new ArrayList<Ingeniero>();
 
         try {
 
@@ -118,10 +85,12 @@ public class EquipoTrabajoData implements EquipotrabajoDAO {
                 while((datos = buffered.readLine()) != null) {
                     String[] listaDatos = datos.split(";");
                     if(Integer.parseInt(listaDatos[0]) == id){
-                        Inginero ingeniero = new Inginero();
-                        equipoTrabajo.setIdEquipoTrabajo(Integer.parseInt(listaDatos[0]));
+                        Ingeniero ingeniero = new Ingeniero();
+
+                        listaIngeniero.add(ingeniero);
                     }
-            }
+
+                }
                 read.close();
                 buffered.close();
             }
@@ -132,6 +101,6 @@ public class EquipoTrabajoData implements EquipotrabajoDAO {
             System.out.println("A ocurrido un error");
             e.printStackTrace();
         }
-        return equipoTrabajo;
+        return listaIngeniero;
     }
 }

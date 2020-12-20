@@ -1,5 +1,6 @@
 package DAO;
 import logica.Tarea;
+import logica.Proyecto;
 
 public interface ProyectoDAO {
     String writeFile (Proyecto proyecto) throws Exception;

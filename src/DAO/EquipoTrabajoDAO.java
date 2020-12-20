@@ -12,8 +12,7 @@ import logica.EquipoTrabajo;
  */
 public interface EquipoTrabajoDAO {
     String writeFile (EquipoTrabajo equipoTrabajo) throws Exception;
-    EquipoTrabajo queryFile(String id) throws Exception;
-    ArrayList<Tarea> queryTareasEquipo(int id) throws Exception;
+    EquipoTrabajo queryFile(int id) throws Exception;
     //String Modificar(EquipoTrabajo equipoTrabajo) throws Exception;
     //String Eliminar(String id) throws Exception;
 }
