@@ -48,6 +48,8 @@ public class IngenierosData {
     public List<Ingeniero> readFile() throws Exception
     {
         List<Ingeniero> list = new ArrayList();
+        boolean flag = false;
+        
         try
         {
             File file = new File("psp2_db\\Ingenieros.txt");
@@ -74,7 +76,7 @@ public class IngenierosData {
                 }
                 read.close();
                 buffered.close();
-                return list;
+                flag = true;
             }
             else
             {
@@ -86,7 +88,7 @@ public class IngenierosData {
             System.out.println("A ocurrido un error");
             e.printStackTrace();
         }
-        return null;
+        return flag ? list : null;
     }
     
     public Ingeniero queryFile(int queryData) throws Exception

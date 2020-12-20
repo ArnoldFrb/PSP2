@@ -49,6 +49,7 @@ public class TareasData {
     public List<Tarea> readFile() throws Exception
     {
         List<Tarea> list = new ArrayList();
+        boolean flag = false;
         try
         {
             File file = new File("psp2_db\\Ingenieros.txt");
@@ -64,6 +65,7 @@ public class TareasData {
                 {
                     String[] listDatos = datos.split(";");
                     Tarea tarea = new Tarea();
+                    
                     tarea.setDescripcionTarea(listDatos[0]);
                     tarea.setDuracionTarea(Integer.parseInt(listDatos[1]));
                     tarea.setFaseProyecto(listDatos[2]);
@@ -75,7 +77,7 @@ public class TareasData {
                 }
                 read.close();
                 buffered.close();
-                return list;
+                flag = true;
             }
             else
             {
@@ -87,7 +89,7 @@ public class TareasData {
             System.out.println("A ocurrido un error");
             e.printStackTrace();
         }
-        return null;
+        return flag ? list : null;
     }
     
     public Tarea queryFile(int queryData) throws Exception
