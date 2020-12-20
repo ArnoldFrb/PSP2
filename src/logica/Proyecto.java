@@ -161,21 +161,6 @@ public class Proyecto {
          listaTareas.add(tarea);
      }
      
-     public FaseProyecto leerFaseProyecto(String faseProyecto)
-     {
-         
-         switch(faseProyecto.toLowerCase())
-         {
-            case "analisis": return FaseProyecto.analisis;
-            case "diseño": return FaseProyecto.diseño;
-            case "implementacion": return FaseProyecto.implementacion;
-            case "despliegue": return FaseProyecto.despliegue;
-            case "mantenimiento": return FaseProyecto.mantenimiento;
-            default:System.out.println("No se ha encontrado una fase con ese nombre");
-         }
-        return null;
-     }
-     
      public Ingeniero BuscarIngeniero(EquipoTrabajo equipoTrabajo,String identificacion)
      {
          for (Ingeniero ingeniero : equipoTrabajo.getListaIngenieros()) {

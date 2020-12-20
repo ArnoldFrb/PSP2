@@ -14,6 +14,11 @@ import java.util.Collections;
  */
 public class EquipoTrabajo implements InterfaceAñadirIngenieros {
     
+    private int idEquipoTrabajo;
+    private String pendientes;
+    private String Ejecutadas;
+    private String ingeniero; 
+    
     private ArrayList<Tarea> listaTareasPendientes =  new ArrayList<>();
     private ArrayList<Tarea> listaTareasEjecutadas = new ArrayList<>();
     private ArrayList<Ingeniero> listaIngenieros;
