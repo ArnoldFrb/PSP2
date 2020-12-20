@@ -64,6 +64,7 @@ public class IngenierosDatos {
                 {
                     String[] listDatos = datos.split(";");
                     Ingeniero ing = new Ingeniero();
+                    
                     ing.setIdentificacionIngeniero(listDatos[0]);
                     ing.setNombreIngeniero(listDatos[1]);
                     ing.setApellidoIngeniero(listDatos[2]);

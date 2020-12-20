@@ -5,7 +5,6 @@
  */
 package logica;
 
-import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -114,7 +113,16 @@ public class Tarea {
 
     @Override
     public String toString() {
-        return "Tarea{" + "identificadorTarea=" + identificadorTarea + ", descripcionTarea=" + descripcionTarea + ", duracionTarea=" + duracionTarea + ", faseProyecto=" + faseProyecto + ", ingeniero=" + ingeniero + ", fechaInicio=" + fechaInicio + ", estadoTarea=" + estadoTarea + ", RolRequerido=" + RolRequerido + ", Justificacion=" + Justificacion + '}';
+        return "Tarea{" + 
+        "identificadorTarea=" + identificadorTarea + 
+        ", descripcionTarea=" + descripcionTarea + 
+        ", duracionTarea=" + duracionTarea + 
+        ", faseProyecto=" + faseProyecto + 
+        ", ingeniero=" + ingeniero + 
+        ", fechaInicio=" + fechaInicio + 
+        ", estadoTarea=" + estadoTarea + 
+        ", RolRequerido=" + RolRequerido + 
+        ", Justificacion=" + Justificacion + '}';
     }
 
     public String datosParaArchivo(){

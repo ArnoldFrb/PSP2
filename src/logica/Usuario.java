@@ -1,26 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package logica;
-
-/**
- *
- * @author arnol
- */
 public class Usuario {
     public int identificacion;
     public String nombre;
     public String apellido;
     public String usuario;
     public String contraseña;
-    public boolean tipoUsurio;
+    public String tipoUsurio;
 
     public Usuario() {
     }
 
-    public Usuario(int identificacion, String nombre, String apellido, String usuario, String contraseña, boolean tipoUsurio) {
+    public Usuario(int identificacion, String nombre, String apellido, String usuario, String contraseña, String tipoUsurio) {
         this.identificacion = identificacion;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -49,7 +39,7 @@ public class Usuario {
         return contraseña;
     }
 
-    public boolean isTipoUsurio() {
+    public String isTipoUsurio() {
         return tipoUsurio;
     }
 
@@ -73,16 +63,15 @@ public class Usuario {
         this.contraseña = contraseña;
     }
 
-    public void setTipoUsurio(boolean tipoUsurio) {
+    public void setTipoUsurio(String tipoUsurio) {
         this.tipoUsurio = tipoUsurio;
     }
-    
+
     @Override
     public String toString() {
         return "Usuario:" + "\nIdentificacion: " + identificacion + "\nNombre: " + nombre + "\nApellido: " + apellido + "\nUsuaario: " + usuario + "\nContrasenia: " + contraseña + "\nTipoUsurio: " + tipoUsurio;
     }
-    
-    
+
     public String datosParaArchivo(){
         return this.identificacion+";"+this.nombre+";"+this.apellido+";"+this.usuario+";"+this.contraseña+";"+this.tipoUsurio+"\n";
     }

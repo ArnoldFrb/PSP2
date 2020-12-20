@@ -33,15 +33,4 @@ public class TareaBasico extends Tarea {
         this.fechaEntrega = fechaEntrega;
     }
 
-   
-    
-
-    
-
-    
-  
-  
-    
-    
-    
 }

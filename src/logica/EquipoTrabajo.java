@@ -12,7 +12,7 @@ import java.util.Collections;
  *
  * @author juana
  */
-public class EquipoTrabajo implements InterfaceAñadirIngenieros {
+public class EquipoTrabajo{
 
     private int idEquipoTrabajo;
     private String pendientes;
@@ -71,10 +71,4 @@ public class EquipoTrabajo implements InterfaceAñadirIngenieros {
         }
 
     }
-
-    @Override
-    public void añadirIngeniero(Ingeniero ingeniero) {
-        listaIngenieros.add(ingeniero);
-    }
-
 }
