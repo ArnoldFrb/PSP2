@@ -7,6 +7,9 @@ import logica.Usuario;
 
 public class UsuarioData implements UsuarioDAO{
 
+    public UsuarioData() {
+    }
+
     public String writeFile(Usuario usuario) throws Exception {
         
         String res = "";

@@ -17,6 +17,9 @@ import logica.Tarea;
  * @author arnol
  */
 public class TareasData implements TareaDAO {
+
+    public TareasData() {
+    }
     
     public String writeFile(Tarea tarea) throws Exception
     {

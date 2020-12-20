@@ -12,7 +12,8 @@ import logica.TareaBasico;
 
 public class EquipoTrabajoData implements EquipoTrabajoDAO {
 
-    public EquipoTrabajoData() {};
+    public EquipoTrabajoData() {
+    };
 
     public String writeFile(EquipoTrabajo equipoTrabajo) throws Exception {
         
@@ -86,6 +87,7 @@ public class EquipoTrabajoData implements EquipoTrabajoDAO {
             System.out.println("A ocurrido un error");
             e.printStackTrace();
         }
+        
         return flag ? equipoTrabajo : null;
     }
     public List<Tarea> queryTareasBasicasEquipo(int queryData) throws Exception {
@@ -132,6 +134,7 @@ public class EquipoTrabajoData implements EquipoTrabajoDAO {
             System.out.println("A ocurrido un error");
             e.printStackTrace();
         }
+        
         return flag ? list : null;
     }
     
@@ -180,6 +183,7 @@ public class EquipoTrabajoData implements EquipoTrabajoDAO {
             System.out.println("A ocurrido un error");
             e.printStackTrace();
         }
+        
         return flag ? list : null;
     }
 }

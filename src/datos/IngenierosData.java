@@ -7,6 +7,9 @@ import java.util.List;
 import logica.Ingeniero;
 
 public class IngenierosData implements IngenieroDAO{
+
+    public IngenierosData() {
+    }
     
     public String writeFile(Ingeniero ing) throws Exception
     {
@@ -92,6 +95,7 @@ public class IngenierosData implements IngenieroDAO{
             System.out.println("A ocurrido un error");
             e.printStackTrace();
         }
+        
         return flag ? list : null;
     }
     
@@ -141,6 +145,7 @@ public class IngenierosData implements IngenieroDAO{
             System.out.println("A ocurrido un error");
             e.printStackTrace();
         }
+        
         return flag ? ing : null;
     }
 }
