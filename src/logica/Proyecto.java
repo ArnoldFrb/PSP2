@@ -17,7 +17,7 @@ import java.util.Scanner;
 public class Proyecto {
     
     private String nombreProyecto;
-    private ArrayList<Tarea> listaTareas;
+    //private ArrayList<Tarea> listaTareas;
     private int duracionProyecto;
     private Date fechaInicio;
     private Date fechaEntrega;
@@ -37,14 +37,6 @@ public class Proyecto {
 
     public void setNombreProyecto(String nombreProyecto) {
         this.nombreProyecto = nombreProyecto;
-    }
-
-    public ArrayList<Tarea> getListaTareas() {
-        return listaTareas;
-    }
-
-    public void setListaTareas(ArrayList<Tarea> listaTareas) {
-        this.listaTareas = listaTareas;
     }
 
     public int getDuracionProyecto() {
@@ -88,6 +80,7 @@ public class Proyecto {
         this.Estado = Estado;
     }
     
+<<<<<<< Updated upstream
     public Date calcularFechaEntrega() {	
         Calendar calendar = Calendar.getInstance();	
         calendar.setTime(this.fechaInicio); 	
@@ -163,6 +156,96 @@ public class Proyecto {
     public Date LeerFecha(String fecha) {
         return new Date(fecha);
     }
+=======
+     public Date calcularFechaEntrega(){	
+      Calendar calendar = Calendar.getInstance();	
+      calendar.setTime(this.fechaInicio); 	
+      calendar.add(Calendar.DAY_OF_YEAR, this.duracionProyecto);  
+      return calendar.getTime(); 	
+    }
+     
+    /* public void crearTarea(EquipoTrabajo equipoTrabajo)
+     {
+         Scanner lector = new Scanner(System.in);
+         System.out.println("Digite el tipo de tarea a crear");
+         String tipoTarea = lector.nextLine();
+         switch(tipoTarea)
+         {
+             case "basica": 
+                   System.out.println("Digite la descripcion de la tarea");
+                   String descripcion = lector.nextLine();
+                   System.out.println("Digite la duracion de la tarea");
+                   int duracion =  lector.nextInt();
+                   System.out.println("Digite la fase de proyecto");
+                   String faseProyecto = lector.nextLine();
+                   System.out.println("Digite la identificacion del ingeniero");
+                   String identificacion = lector.nextLine();
+                   String ingeniero = lector.nextLine();
+                   System.out.println("Digite la fecha de inicio");
+                   /*
+                   Mes/dia/año
+                   */
+                   /*
+                   Date fechaInicio = LeerFecha(lector.nextLine());
+                   System.out.println("Digite la fecha de entrega");
+                   /*
+                   Mes/dia/año
+                   */
+                   /*
+                   Date fechaEntrega = LeerFecha(lector.nextLine());
+                   System.out.println("Digite el rol requerido del ingeniero");
+                   String rolRequerido = lector.nextLine();
+                   
+                   Tarea tarea = new TareaBasico(fechaEntrega, descripcion, duracion, faseProyecto, ingeniero, fechaInicio, rolRequerido);
+                   añadirTarea(tarea);
+                 break;
+             case "complementaria":
+                 System.out.println("Digite la descripcion de la tarea");
+                   String descripcionC = lector.nextLine();
+                   System.out.println("Digite la duracion de la tarea");
+                   int duracionC =  lector.nextInt();
+                   System.out.println("Digite la fase de proyecto");
+                   String faseProyectoC = lector.nextLine();
+                   System.out.println("Digite la identificacion del ingeniero");
+                   String identificacionC = lector.nextLine();
+                   String ingenieroC = lector.nextLine();
+                   System.out.println("Digite la fecha de inicio");
+                   /*
+                   Mes/dia/año
+                   */
+                   /*
+                   Date fechaInicioC = LeerFecha(lector.nextLine());
+                   System.out.println("Digite el rol requerido del ingeniero");
+                   String rolRequeridoC = lector.nextLine();
+                   
+                   Tarea tareaC = new TareaComplementaria(descripcionC, duracionC, faseProyectoC, ingenieroC, fechaInicioC, rolRequeridoC);
+                   
+                   añadirTarea(tareaC);
+                 break;
+             default: System.out.println("No se encontro el tipo de tarea a crear");
+         }
+     }*/    
+     public void añadirTarea(Tarea tarea)
+     {
+         //listaTareas.add(tarea);
+     }
+     
+     public Ingeniero BuscarIngeniero(EquipoTrabajo equipoTrabajo,String identificacion)
+     {
+         for (Ingeniero ingeniero : equipoTrabajo.getListaIngenieros()) {
+             if(ingeniero.getIdentificacionIngeniero().equalsIgnoreCase(identificacion))
+             {
+                 return ingeniero;
+             }
+         }
+         return null;
+     }
+     
+     public Date LeerFecha(String fecha)
+     {
+         return new Date(fecha);
+     }
+>>>>>>> Stashed changes
 
     @Override
     public String toString() {
