@@ -33,7 +33,7 @@ public class TareasData {
             {
                 write = new FileWriter(file, true);
                 buffered = new BufferedWriter(write);
-                buffered.write("HOLA MUNDO");
+                buffered.write(tarea.datosParaArchivo());
             }
             write.close();
             buffered.close();

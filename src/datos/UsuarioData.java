@@ -21,7 +21,7 @@ public class UsuarioData implements UsuarioDAO{
             {
                 write = new FileWriter(file, true);
                 buffered = new BufferedWriter(write);
-                buffered.write("HOLA MUNDO");
+                buffered.write(usuario.datosParaArchivo());
             }
             write.close();
             buffered.close();
