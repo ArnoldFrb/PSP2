@@ -92,9 +92,9 @@ public class TareasData {
     
     public Tarea queryFile(int queryData) throws Exception
     {
-        List<Tarea> list = new ArrayList();
         Tarea tarea = new Tarea();
         boolean flag = false;
+        
         try
         {
             File file = new File("psp2_db\\Ingenieros.txt");

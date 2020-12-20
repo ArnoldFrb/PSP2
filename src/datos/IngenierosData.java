@@ -88,4 +88,53 @@ public class IngenierosData {
         }
         return null;
     }
+    
+    public Ingeniero queryFile(int queryData) throws Exception
+    {
+        Ingeniero ing = new Ingeniero();
+        boolean flag = false;
+        
+        try
+        {
+            File file = new File("psp2_db\\Ingenieros.txt");
+            FileReader read;
+            BufferedReader buffered;
+            if(file.exists())
+            {
+                read = new FileReader(file);
+                buffered = new BufferedReader(read);
+                
+                String datos;
+                while((datos = buffered.readLine()) != null)
+                {
+                    String[] listDatos = datos.split(";");
+                    
+                    if(queryData == Integer.parseInt(listDatos[0]))
+                    {
+                        ing.setIdentificacionIngeniero(listDatos[0]);
+                        ing.setNombreIngeniero(listDatos[1]);
+                        ing.setApellidoIngeniero(listDatos[2]);
+                        ing.setEdadIngeniero(Integer.parseInt(listDatos[3]));
+                        ing.setEspecailidadIngeniero(listDatos[4]);
+                        ing.setAñosExperiencia(Integer.parseInt(listDatos[4]));
+                        
+                        flag = true;
+                    }
+                }
+                read.close();
+                buffered.close();
+                
+            }
+            else
+            {
+                System.out.println("No hay datos");
+            }
+        }
+        catch(IOException e)
+        {
+            System.out.println("A ocurrido un error");
+            e.printStackTrace();
+        }
+        return flag ? ing : null;
+    }
 }
