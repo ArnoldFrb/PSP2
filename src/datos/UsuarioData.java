@@ -7,7 +7,7 @@ import logica.Usuario;
 
 public class UsuarioData implements UsuarioDAO{
 
-    public String Guardar(Usuario usuario) throws Exception {
+    public String writeFile(Usuario usuario) throws Exception {
         try {
             File file = new File("psp2_db\\Usuarios.txt");
             FileWriter write;
@@ -36,7 +36,7 @@ public class UsuarioData implements UsuarioDAO{
         }
     }
     
-    public Usuario Consultar(int id) throws Exception {
+    public Usuario queryFile(int querydata) throws Exception {
         Usuario usuario = new Usuario();
 
         try {
@@ -54,7 +54,7 @@ public class UsuarioData implements UsuarioDAO{
                 while((datos = buffered.readLine()) != null) {
                     String[] listaDatos = datos.split(";");
 
-                    if(Integer.parseInt(listaDatos[0]) == id){
+                    if(Integer.parseInt(listaDatos[0]) == querydata){
                         usuario.setIdentificacion(Integer.parseInt(listaDatos[0]));
                         usuario.setNombre(listaDatos[1]);
                         usuario.setApellido(listaDatos[2]);

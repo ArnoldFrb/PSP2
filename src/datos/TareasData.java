@@ -5,6 +5,7 @@
  */
 package datos;
 
+import DAO.TareaDAO;
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -15,8 +16,9 @@ import logica.Tarea;
  *
  * @author arnol
  */
-public class TareasData {
-    public static void WriteFile(Tarea tarea) throws Exception
+public class TareasData implements TareaDAO {
+    
+    public String writeFile(Tarea tarea) throws Exception
     {
         try
         {
@@ -44,6 +46,7 @@ public class TareasData {
             System.out.println("A ocurrido un error");
             e.printStackTrace();
         }
+        return "Todo melo";
     }
     
     public List<Tarea> readFile() throws Exception

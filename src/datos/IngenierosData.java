@@ -15,7 +15,7 @@ import logica.Ingeniero;
  */
 public class IngenierosData {
     
-    public static void WriteFile(Ingeniero ing) throws Exception
+    public static void writeFile(Ingeniero ing) throws Exception
     {
         try
         {
