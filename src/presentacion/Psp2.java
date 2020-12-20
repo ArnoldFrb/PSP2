@@ -41,8 +41,6 @@ public class Psp2 extends javax.swing.JFrame {
         jtfUsuario1 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jtfUsuario3 = new javax.swing.JTextField();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jLabel8 = new javax.swing.JLabel();
         jtfUsuario = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -87,10 +85,6 @@ public class Psp2 extends javax.swing.JFrame {
 
         jtfUsuario3.setName("jtfUsuario"); // NOI18N
 
-        jRadioButton1.setText("Gerente");
-
-        jLabel8.setText("Presione para usuario Gerente");
-
         javax.swing.GroupLayout jpnRegistrarseLayout = new javax.swing.GroupLayout(jpnRegistrarse);
         jpnRegistrarse.setLayout(jpnRegistrarseLayout);
         jpnRegistrarseLayout.setHorizontalGroup(
@@ -107,7 +101,6 @@ public class Psp2 extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jpnRegistrarseLayout.createSequentialGroup()
                         .addGap(34, 34, 34)
                         .addGroup(jpnRegistrarseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton1)
                             .addComponent(jLabel7)
                             .addGroup(jpnRegistrarseLayout.createSequentialGroup()
                                 .addGroup(jpnRegistrarseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,8 +114,7 @@ public class Psp2 extends javax.swing.JFrame {
                                     .addComponent(jLabel6)
                                     .addComponent(jtfUsuario3)
                                     .addComponent(jLabel4)
-                                    .addComponent(jtfContraseña1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(jtfContraseña1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
         jpnRegistrarseLayout.setVerticalGroup(
@@ -152,11 +144,7 @@ public class Psp2 extends javax.swing.JFrame {
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jtfContraseña1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(29, 29, 29)
-                .addComponent(jRadioButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                 .addComponent(jbtRegistrarse)
                 .addGap(32, 32, 32))
         );
@@ -259,8 +247,6 @@ public class Psp2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JButton jbtIniciarSeccion;
     private javax.swing.JButton jbtRegistrarse;
     private javax.swing.JPanel jpnRegistrarse;

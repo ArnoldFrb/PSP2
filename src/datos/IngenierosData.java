@@ -33,7 +33,7 @@ public class IngenierosData {
             {
                 write = new FileWriter(file, true);
                 buffered = new BufferedWriter(write);
-                buffered.write("HOLA MUNDO");
+                buffered.write(ingeniero.datosParaArchivo());
             }
             write.close();
             buffered.close();

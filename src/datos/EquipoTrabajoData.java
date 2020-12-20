@@ -32,7 +32,7 @@ public class EquipoTrabajoData {
             {
                 write = new FileWriter(file, true);
                 buffered = new BufferedWriter(write);
-                buffered.write("HOLA MUNDO");
+                buffered.write(equipoTrabajo.datosParaArchivo());
             }
             write.close();
             buffered.close();
