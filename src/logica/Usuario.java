@@ -78,7 +78,7 @@ public class Usuario {
                 "\nTipoUsurio: " + tipoUsurio;
     }
 
-    public String datosParaArchivo(){
+    public String datosParaArchivo() {
         return this.identificacion+";"+this.nombre+";"+this.apellido+";"+this.usuario+";"+this.contraseña+";"+this.tipoUsurio+"\n";
     }
 }
