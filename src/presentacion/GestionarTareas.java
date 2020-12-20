@@ -47,7 +47,7 @@ public class GestionarTareas extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jBRegresar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel8.setBackground(new java.awt.Color(153, 255, 153));
 
