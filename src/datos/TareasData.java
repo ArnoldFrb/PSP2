@@ -9,7 +9,6 @@ import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
-import logica.Ingeniero;
 import logica.Tarea;
 
 /**
@@ -17,9 +16,11 @@ import logica.Tarea;
  * @author arnol
  */
 public class TareasData {
-    public String Guardar(Tarea tarea) throws Exception {
-        try {
-            File file = new File("psp2_db\\Tareas.txt");
+    public static void WriteFile(Tarea tarea) throws Exception
+    {
+        try
+        {
+            File file = new File("psp2_db\\Ingenieros.txt");
             FileWriter write;
             BufferedWriter buffered;
             if(file.exists())
@@ -37,48 +38,48 @@ public class TareasData {
             }
             write.close();
             buffered.close();
-
-            return "Todo melo";
         }
         catch(IOException e)
         {
-            return e.toString();
+            System.out.println("A ocurrido un error");
+            e.printStackTrace();
         }
     }
     
-    public Tarea Consultar(String id) throws Exception {
-        try {
-            Tarea tarea = new Tarea();
-
-            File file = new File("psp2_db\\Tareas.txt");
+    public List<Tarea> readFile() throws Exception
+    {
+        List<Tarea> list = new ArrayList();
+        try
+        {
+            File file = new File("psp2_db\\Ingenieros.txt");
             FileReader read;
             BufferedReader buffered;
-            if(file.exists()) {
-
+            if(file.exists())
+            {
                 read = new FileReader(file);
                 buffered = new BufferedReader(read);
+                
                 String datos;
-
-                while((datos = buffered.readLine()) != null) {
-                    String[] listaDatos = datos.split(";");
-                    
-                    tarea.setIdentificadorTarea(Integer.parseInt(listaDatos[0]));
-                    tarea.setDescripcionTarea(listaDatos[1]);
-                    tarea.setDuracionTarea(Integer.parseInt(listaDatos[2]));
-                    tarea.setFaseProyecto(listaDatos[3]);
-                    tarea.setIngeniero(listaDatos[4]);
-                    tarea.setFechaInicio(new SimpleDateFormat("dd/MM/yyyy").parse(listaDatos[5]));
-                    tarea.setEstadoTarea(listaDatos[6]);
-                    tarea.setRolRequerido(listaDatos[7]);
-                    tarea.setJustificacion(listaDatos[8]);
-            }
+                while((datos = buffered.readLine()) != null)
+                {
+                    String[] listDatos = datos.split(";");
+                    Tarea tarea = new Tarea();
+                    tarea.setDescripcionTarea(listDatos[0]);
+                    tarea.setDuracionTarea(Integer.parseInt(listDatos[1]));
+                    tarea.setFaseProyecto(listDatos[2]);
+                    tarea.setIngeniero(listDatos[3]);
+                    tarea.setFechaInicio(new SimpleDateFormat("dd/MM/yyyy").parse(listDatos[4]));
+                    tarea.setRolRequerido(listDatos[5]);
+                    tarea.setEstadoTarea(listDatos[6]);
+                    list.add(tarea);
+                }
                 read.close();
                 buffered.close();
-                return tarea;
+                return list;
             }
             else
             {
-                return null;
+                System.out.println("No hay datos");
             }
         }
         catch(IOException e)

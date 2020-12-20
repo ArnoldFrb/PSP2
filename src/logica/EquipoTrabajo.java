@@ -1,7 +1,8 @@
 package logica;
 import java.util.ArrayList;
 public class EquipoTrabajo{
-    private int idEquipoTrabajo;
+    private int identificador;
+    private int identfiacadorEquipoTrabajo;
     private ArrayList<Tarea> tareas;
     private ArrayList<Ingeniero> ingenieros;
     private ArrayList<Tarea> listaTareasPendientes;
@@ -14,14 +15,19 @@ public class EquipoTrabajo{
         listaTareasEjecutadas = new ArrayList<Tarea>();
     }
 
-    public EquipoTrabajo(int identificador, int idEquipoTrabajo, ArrayList<Tarea> tareas, ArrayList<Ingeniero> ingenieros) {
-        this.idEquipoTrabajo = idEquipoTrabajo;
+    public EquipoTrabajo(int identificador, int identfiacadorEquipoTrabajo, ArrayList<Tarea> tareas, ArrayList<Ingeniero> ingenieros) {
+        this.identificador = identificador;
+        this.identfiacadorEquipoTrabajo = identfiacadorEquipoTrabajo;
         this.tareas = tareas;
         this.ingenieros = ingenieros;
     }
 
-    public int getIdEquipoTrabajo() {
-        return idEquipoTrabajo;
+    public int getIdentificador() {
+        return identificador;
+    }
+
+    public int getIdentfiacadorEquipoTrabajo() {
+        return identfiacadorEquipoTrabajo;
     }
 
     public ArrayList<Tarea> getTareas() {
@@ -40,8 +46,12 @@ public class EquipoTrabajo{
         return listaTareasEjecutadas;
     }
 
-    public void setIdEquipoTrabajo(int idEquipoTrabajo) {
-        this.idEquipoTrabajo = idEquipoTrabajo;
+    public void setIdentificador(int identificador) {
+        this.identificador = identificador;
+    }
+
+    public void setIdentfiacadorEquipoTrabajo(int identfiacadorEquipoTrabajo) {
+        this.identfiacadorEquipoTrabajo = identfiacadorEquipoTrabajo;
     }
 
     public void setTareas(ArrayList<Tarea> tareas) {
@@ -58,9 +68,5 @@ public class EquipoTrabajo{
 
     public void setIngenieros(ArrayList<Ingeniero> ingenieros) {
         this.ingenieros = ingenieros;
-    }
-
-    public String datosParaArchivo(){
-        return this.idEquipoTrabajo+"\n";
     }
 }
