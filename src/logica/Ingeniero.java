@@ -81,8 +81,7 @@ public class Ingeniero {
         return "Ingeniero{" + "identificacionIngeniero=" + identificacionIngeniero + ", nombreIngeniero=" + nombreIngeniero + ", apellidoIngeniero=" + apellidoIngeniero + ", edadIngeniero=" + edadIngeniero + ", a\u00f1osExperiencia=" + añosExperiencia + ", especailidadIngeniero=" + especailidadIngeniero + '}';
     }
 
-    
-    
-    
-    
+    public String datosParaArchivo(){
+        return this.identificacionIngeniero+";"+this.nombreIngeniero+";"+this.apellidoIngeniero+";"+this.edadIngeniero+";"+this.añosExperiencia+";"+this.especailidadIngeniero+"\n";
+    }
 }
