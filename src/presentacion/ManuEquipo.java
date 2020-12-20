@@ -9,12 +9,12 @@ package presentacion;
  *
  * @author arnol
  */
-public class MenuEquipo extends javax.swing.JFrame {
+public class ManuEquipo extends javax.swing.JFrame {
 
     /**
      * Creates new form ManuEquipo
      */
-    public MenuEquipo() {
+    public ManuEquipo() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -144,14 +144,14 @@ public class MenuEquipo extends javax.swing.JFrame {
     private void jPanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseClicked
         // TODO add your handling code here:
         
-        new MenuEquipo().setVisible(false);
+        new ManuEquipo().setVisible(false);
         new GestionarDatos().setVisible(true);
     }//GEN-LAST:event_jPanel2MouseClicked
 
     private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
         // TODO add your handling code here:
         
-        new MenuEquipo().setVisible(false);
+        new ManuEquipo().setVisible(false);
         new GestionarTareas().setVisible(true);
     }//GEN-LAST:event_jPanel3MouseClicked
 
@@ -172,21 +172,20 @@ public class MenuEquipo extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MenuEquipo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManuEquipo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MenuEquipo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManuEquipo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MenuEquipo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManuEquipo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MenuEquipo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManuEquipo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MenuEquipo().setVisible(true);
+                new ManuEquipo().setVisible(true);
             }
         });
     }

@@ -7,15 +7,9 @@ import java.util.List;
 import logica.Ingeniero;
 
 public class IngenierosData implements IngenieroDAO{
-
-    public IngenierosData() {
-    }
     
     public String writeFile(Ingeniero ing) throws Exception
     {
-        String res = "";
-        boolean flag = false;
-        
         try
         {
             File file = new File("psp2_db\\Ingenieros.txt");
@@ -27,18 +21,12 @@ public class IngenierosData implements IngenieroDAO{
                 buffered = new BufferedWriter(write);
                 buffered.newLine();
                 buffered.write(ing.datosParaArchivo());
-                
-                res = "Se ha insertado el nuevo registro";
-                flag = true;
             }
             else
             {
                 write = new FileWriter(file, true);
                 buffered = new BufferedWriter(write);
                 buffered.write(ing.datosParaArchivo());
-                
-                res = "Se ha insertado el registro";
-                flag = true;
             }
             write.close();
             buffered.close();
@@ -49,7 +37,7 @@ public class IngenierosData implements IngenieroDAO{
             e.printStackTrace();
         }
         
-        return flag ? res : "Error al insertar registros";
+        return "HELLO WORLD";
     }
     
     public List<Ingeniero> readFile() throws Exception
@@ -95,7 +83,6 @@ public class IngenierosData implements IngenieroDAO{
             System.out.println("A ocurrido un error");
             e.printStackTrace();
         }
-        
         return flag ? list : null;
     }
     
@@ -145,7 +132,6 @@ public class IngenierosData implements IngenieroDAO{
             System.out.println("A ocurrido un error");
             e.printStackTrace();
         }
-        
         return flag ? ing : null;
     }
 }

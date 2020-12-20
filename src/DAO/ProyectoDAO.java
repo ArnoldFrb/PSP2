@@ -1,5 +1,4 @@
 package DAO;
-import logica.Proyecto;
 import logica.Tarea;
 
 public interface ProyectoDAO {

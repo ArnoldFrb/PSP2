@@ -189,7 +189,7 @@ public class MenuGerente extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         new MenuGerente().setVisible(false);
-        new EquipoTrabajo().setVisible(true);
+        new EqiuipoTrabajo().setVisible(true);
     }//GEN-LAST:event_jPGestionarEquipoMouseClicked
 
     private void jPGestionarUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPGestionarUsuariosMouseClicked
