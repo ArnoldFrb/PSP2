@@ -10,7 +10,7 @@ package logica;
  * @author juana
  */
 public class Ingeniero {
-    
+
     private String identificacionIngeniero;
     private String nombreIngeniero;
     private String apellidoIngeniero;
@@ -20,7 +20,7 @@ public class Ingeniero {
 
     public Ingeniero() {
     }
-    
+
     public Ingeniero(String identificacionIngeniero, String nombreIngeniero, String apellidoIngeniero, int edadIngeniero, int añosExperiencia, String especailidadIngeniero) {
         this.identificacionIngeniero = identificacionIngeniero;
         this.nombreIngeniero = nombreIngeniero;

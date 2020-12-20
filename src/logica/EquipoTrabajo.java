@@ -1,10 +1,10 @@
 package logica;
 import java.util.ArrayList;
 public class EquipoTrabajo{
-    private int identificador;
-    private int identfiacadorEquipoTrabajo;
+    private int idEquipoTrabajo;
     private ArrayList<Tarea> tareas;
     private ArrayList<Ingeniero> ingenieros;
+    private ArrayList<Tarea> listaTareasNoEjecutadas;
     private ArrayList<Tarea> listaTareasPendientes;
     private ArrayList<Tarea> listaTareasEjecutadas;
 
@@ -13,21 +13,40 @@ public class EquipoTrabajo{
         ingenieros = new ArrayList<Ingeniero>();
         listaTareasPendientes = new ArrayList<Tarea>();
         listaTareasEjecutadas = new ArrayList<Tarea>();
+        listaTareasNoEjecutadas = new ArrayList<Tarea>();
     }
 
-    public EquipoTrabajo(int identificador, int identfiacadorEquipoTrabajo, ArrayList<Tarea> tareas, ArrayList<Ingeniero> ingenieros) {
-        this.identificador = identificador;
-        this.identfiacadorEquipoTrabajo = identfiacadorEquipoTrabajo;
+    public EquipoTrabajo(int identificador, int idEquipoTrabajo, ArrayList<Tarea> tareas, ArrayList<Ingeniero> ingenieros) {
+        this.idEquipoTrabajo = idEquipoTrabajo;
         this.tareas = tareas;
         this.ingenieros = ingenieros;
     }
 
-    public int getIdentificador() {
-        return identificador;
+    public void setTareas(ArrayList<Tarea> tareas) {
+        this.tareas = tareas;
+
+        for (Tarea tarea : tareas) {
+            if(tarea.getEstadoTarea() == "ejecutada")
+            {
+                listaTareasEjecutadas.add(tarea);
+            }
+            if(tarea.getEstadoTarea() == "noejecutadas")
+            {
+                listaTareasNoEjecutadas.add(tarea);
+            }
+            if(tarea.getEstadoTarea() == "pendientes")
+            {
+                listaTareasPendientes.add(tarea);
+            }
+        }
     }
 
-    public int getIdentfiacadorEquipoTrabajo() {
-        return identfiacadorEquipoTrabajo;
+    public int getIdEquipoTrabajo() {
+        return idEquipoTrabajo;
+    }
+
+    public void setIdEquipoTrabajo(int idEquipoTrabajo) {
+        this.idEquipoTrabajo = idEquipoTrabajo;
     }
 
     public ArrayList<Tarea> getTareas() {
@@ -38,35 +57,36 @@ public class EquipoTrabajo{
         return ingenieros;
     }
 
+    public void setIngenieros(ArrayList<Ingeniero> ingenieros) {
+        this.ingenieros = ingenieros;
+    }
+
+    public ArrayList<Tarea> getListaTareasNoEjecutadas() {
+        return listaTareasNoEjecutadas;
+    }
+
+    public void setListaTareasNoEjecutadas(ArrayList<Tarea> listaTareasNoEjecutadas) {
+        this.listaTareasNoEjecutadas = listaTareasNoEjecutadas;
+    }
+
     public ArrayList<Tarea> getListaTareasPendientes() {
         return listaTareasPendientes;
+    }
+
+    public void setListaTareasPendientes(ArrayList<Tarea> listaTareasPendientes) {
+        this.listaTareasPendientes = listaTareasPendientes;
     }
 
     public ArrayList<Tarea> getListaTareasEjecutadas() {
         return listaTareasEjecutadas;
     }
 
-    public void setIdentificador(int identificador) {
-        this.identificador = identificador;
+    public void setListaTareasEjecutadas(ArrayList<Tarea> listaTareasEjecutadas) {
+        this.listaTareasEjecutadas = listaTareasEjecutadas;
     }
 
-    public void setIdentfiacadorEquipoTrabajo(int identfiacadorEquipoTrabajo) {
-        this.identfiacadorEquipoTrabajo = identfiacadorEquipoTrabajo;
-    }
-
-    public void setTareas(ArrayList<Tarea> tareas) {
-        this.tareas = tareas;
-    }
-
-    public void setListaTareasPendientes(ArrayList<Tarea> tareas) {
-        this.listaTareasPendientes = tareas;
-    }
-
-    public void setListaTareasEjecutadass(ArrayList<Tarea> tareas) {
-        this.listaTareasEjecutadas = tareas;
-    }
-
-    public void setIngenieros(ArrayList<Ingeniero> ingenieros) {
-        this.ingenieros = ingenieros;
+    @Override
+    public String toString() {
+        return "Proyecto{" + "idEquipoTrabajo=" + idEquipoTrabajo + "}";
     }
 }

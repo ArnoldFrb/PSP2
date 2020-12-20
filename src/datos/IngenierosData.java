@@ -7,14 +7,13 @@ package datos;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 import logica.Ingeniero;
 
 /**
  *
  * @author arnol
  */
-public class IngenierosDatos {
+public class IngenierosData {
     
     public static void WriteFile(Ingeniero ing) throws Exception
     {
