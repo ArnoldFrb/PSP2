@@ -16,6 +16,7 @@ public class GestionarUsuarios extends javax.swing.JFrame {
      */
     public GestionarUsuarios() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

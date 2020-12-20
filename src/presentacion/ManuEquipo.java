@@ -16,6 +16,7 @@ public class ManuEquipo extends javax.swing.JFrame {
      */
     public ManuEquipo() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
