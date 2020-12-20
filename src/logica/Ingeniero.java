@@ -16,9 +16,12 @@ public class Ingeniero {
     private String apellidoIngeniero;
     private int edadIngeniero;
     private int añosExperiencia;
-    private EspecialidadIngeniero especailidadIngeniero;
+    private String especailidadIngeniero;
 
-    public Ingeniero(String identificacionIngeniero, String nombreIngeniero, String apellidoIngeniero, int edadIngeniero, int añosExperiencia, EspecialidadIngeniero especailidadIngeniero) {
+    public Ingeniero() {
+    }
+    
+    public Ingeniero(String identificacionIngeniero, String nombreIngeniero, String apellidoIngeniero, int edadIngeniero, int añosExperiencia, String especailidadIngeniero) {
         this.identificacionIngeniero = identificacionIngeniero;
         this.nombreIngeniero = nombreIngeniero;
         this.apellidoIngeniero = apellidoIngeniero;
@@ -26,7 +29,6 @@ public class Ingeniero {
         this.añosExperiencia = añosExperiencia;
         this.especailidadIngeniero = especailidadIngeniero;
     }
-    
 
     public String getIdentificacionIngeniero() {
         return identificacionIngeniero;
@@ -68,11 +70,11 @@ public class Ingeniero {
         this.añosExperiencia = añosExperiencia;
     }
 
-    public EspecialidadIngeniero getEspecailidadIngeniero() {
+    public String getEspecailidadIngeniero() {
         return especailidadIngeniero;
     }
 
-    public void setEspecailidadIngeniero(EspecialidadIngeniero especailidadIngeniero) {
+    public void setEspecailidadIngeniero(String especailidadIngeniero) {
         this.especailidadIngeniero = especailidadIngeniero;
     }
 

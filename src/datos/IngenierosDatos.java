@@ -8,7 +8,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import logica.IngenierosLogica;
+import logica.Ingeniero;
 
 /**
  *
@@ -16,7 +16,7 @@ import logica.IngenierosLogica;
  */
 public class IngenierosDatos {
     
-    public static void WriteFile(IngenierosLogica ing) throws Exception
+    public static void WriteFile(Ingeniero ing) throws Exception
     {
         try
         {
@@ -46,9 +46,9 @@ public class IngenierosDatos {
         }
     }
     
-    public List<IngenierosLogica> readFile() throws Exception
+    public List<Ingeniero> readFile() throws Exception
     {
-        List<IngenierosLogica> list = new ArrayList();
+        List<Ingeniero> list = new ArrayList();
         try
         {
             File file = new File("psp2_db\\Ingenieros.txt");
@@ -63,12 +63,12 @@ public class IngenierosDatos {
                 while((datos = buffered.readLine()) != null)
                 {
                     String[] listDatos = datos.split(";");
-                    IngenierosLogica ing = new IngenierosLogica();
-                    ing.setIdentificacion(Integer.parseInt(listDatos[0]));
-                    ing.setNombre(listDatos[1]);
-                    ing.setApellido(listDatos[2]);
-                    ing.setEdad(Integer.parseInt(listDatos[3]));
-                    ing.setEspecialidad(listDatos[4]);
+                    Ingeniero ing = new Ingeniero();
+                    ing.setIdentificacionIngeniero(listDatos[0]);
+                    ing.setNombreIngeniero(listDatos[1]);
+                    ing.setApellidoIngeniero(listDatos[2]);
+                    ing.setEdadIngeniero(Integer.parseInt(listDatos[3]));
+                    ing.setEspecailidadIngeniero(listDatos[4]);
                     ing.setAñosExperiencia(Integer.parseInt(listDatos[4]));
                     list.add(ing);
                 }

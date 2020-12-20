@@ -45,7 +45,7 @@ public class ListaGlobalIngenieros implements InterfaceAñadirIngenieros{
         int añosExperiencia = Lector.nextInt();
         Lector.nextLine();
         System.out.println("Digite la especilidad del ingeniero : ");
-        EspecialidadIngeniero especilidad = leerEspecialidadIngeniero(Lector.nextLine());
+        String especilidad = Lector.nextLine();
         
         Ingeniero ingeniero = new Ingeniero(identificacion, nombre, apellido, edad, añosExperiencia, especilidad);
         
