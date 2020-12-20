@@ -4,19 +4,18 @@
  * and open the template in the editor.
  */
 package datos;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
-import logica.IngenierosLogica;
+import logica.Usuario;
 
 /**
  *
  * @author arnol
  */
-public class IngenierosDatos {
-    
-    public static void WriteFile(IngenierosLogica ing) throws Exception
+public class UsuariosDatos {
+    public static void WriteFile(Usuario user) throws Exception
     {
         try
         {
@@ -46,9 +45,9 @@ public class IngenierosDatos {
         }
     }
     
-    public List<IngenierosLogica> readFile() throws Exception
+    public List<Usuario> readFile() throws Exception
     {
-        List<IngenierosLogica> list = new ArrayList();
+        List<Usuario> list = new ArrayList();
         try
         {
             File file = new File("psp2_db\\Ingenieros.txt");
@@ -63,14 +62,14 @@ public class IngenierosDatos {
                 while((datos = buffered.readLine()) != null)
                 {
                     String[] listDatos = datos.split(";");
-                    IngenierosLogica ing = new IngenierosLogica();
-                    ing.setIdentificacion(Integer.parseInt(listDatos[0]));
-                    ing.setNombre(listDatos[1]);
-                    ing.setApellido(listDatos[2]);
-                    ing.setEdad(Integer.parseInt(listDatos[3]));
-                    ing.setEspecialidad(listDatos[4]);
-                    ing.setAñosExperiencia(Integer.parseInt(listDatos[4]));
-                    list.add(ing);
+                    Usuario user = new Usuario();
+                    user.setIdentificacion(Integer.parseInt(listDatos[0]));
+                    user.setNombre(listDatos[1]);
+                    user.setApellido(listDatos[2]);
+                    user.setContraseña(listDatos[3]);
+                    user.setContraseña(listDatos[4]);
+                    user.setTipoUsuario(Boolean.parseBoolean(listDatos[5]));
+                    list.add(user);
                 }
                 read.close();
                 buffered.close();
