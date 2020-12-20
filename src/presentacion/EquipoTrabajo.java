@@ -1,13 +1,12 @@
 package presentacion;
-import logica.EquipoTrabajo;
 import datos.EquipoTrabajoData;
 
-public class EqiuipoTrabajo extends javax.swing.JFrame {
+public class EquipoTrabajo extends javax.swing.JFrame {
 
     /**
      * Creates new form EqiuipoTrabajo
      */
-    public EqiuipoTrabajo() {
+    public EquipoTrabajo() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -283,7 +282,7 @@ public class EqiuipoTrabajo extends javax.swing.JFrame {
 
     private void jBRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBRegresarActionPerformed
         // TODO add your handling code here:
-        new EqiuipoTrabajo().setVisible(false);
+        new EquipoTrabajo().setVisible(false);
         new MenuGerente().setVisible(true);
     }//GEN-LAST:event_jBRegresarActionPerformed
 
@@ -304,20 +303,21 @@ public class EqiuipoTrabajo extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EqiuipoTrabajo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EquipoTrabajo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EqiuipoTrabajo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EquipoTrabajo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EqiuipoTrabajo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EquipoTrabajo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EqiuipoTrabajo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EquipoTrabajo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new EqiuipoTrabajo().setVisible(true);
+                new EquipoTrabajo().setVisible(true);
             }
         });
     }

@@ -251,7 +251,7 @@ public class GestionarTareas extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         new GestionarTareas().setVisible(false);
-        new ManuEquipo().setVisible(true);
+        new MenuEquipo().setVisible(true);
     }//GEN-LAST:event_jBRegresarActionPerformed
 
     /**

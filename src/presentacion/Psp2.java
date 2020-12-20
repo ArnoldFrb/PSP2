@@ -225,7 +225,7 @@ public class Psp2 extends javax.swing.JFrame {
         else
         {
             new Psp2().setVisible(false);
-            new ManuEquipo().setVisible(true);
+            new MenuEquipo().setVisible(true);
         }
     }//GEN-LAST:event_jbtIniciarSeccionActionPerformed
 

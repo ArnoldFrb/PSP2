@@ -336,7 +336,7 @@ public class GestionarDatos extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         new GestionarDatos().setVisible(false);
-        new ManuEquipo().setVisible(true);
+        new MenuEquipo().setVisible(true);
     }//GEN-LAST:event_jBRegresarActionPerformed
 
     /**

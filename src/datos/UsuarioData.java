@@ -8,22 +8,34 @@ import logica.Usuario;
 public class UsuarioData implements UsuarioDAO{
 
     public String writeFile(Usuario usuario) throws Exception {
-        try {
+        
+        String res = "";
+        boolean flag = false;
+        
+        try 
+        {
             File file = new File("psp2_db\\Usuarios.txt");
             FileWriter write;
             BufferedWriter buffered;
+            
             if(file.exists())
             {
                 write = new FileWriter(file, true);
                 buffered = new BufferedWriter(write);
                 buffered.newLine();
                 buffered.write(usuario.datosParaArchivo());
+                
+                res = "Se ha insertado el nuevo registro";
+                flag = true;
             }
             else
             {
                 write = new FileWriter(file, true);
                 buffered = new BufferedWriter(write);
                 buffered.write(usuario.datosParaArchivo());
+                
+                res = "Se ha insertado el registro";
+                flag = true;
             }
             write.close();
             buffered.close();
@@ -32,11 +44,15 @@ public class UsuarioData implements UsuarioDAO{
         }
         catch(IOException e)
         {
-            return e.toString();
+            System.out.println("A ocurrido un error");
+            e.printStackTrace();
         }
+        
+        return flag ? res : "Error al insertar registros";
     }
     
     public Usuario queryFile(int querydata) throws Exception {
+        
         Usuario usuario = new Usuario();
 
         try {
