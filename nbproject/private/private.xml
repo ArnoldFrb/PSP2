@@ -3,8 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/WORLD/JAVA/PSP2/src/presentacion/VistaGerente.java</file>
+            <file>file:/C:/WORLD/JAVA/PSP2/src/presentacion/MenuGerente.java</file>
+            <file>file:/C:/WORLD/JAVA/PSP2/src/presentacion/GestionarDatos.java</file>
+            <file>file:/C:/WORLD/JAVA/PSP2/src/datos/EquipoTrabajoData.java</file>
+            <file>file:/C:/WORLD/JAVA/PSP2/src/presentacion/ManuEquipo.java</file>
             <file>file:/C:/WORLD/JAVA/PSP2/src/presentacion/Psp2.java</file>
+            <file>file:/C:/WORLD/JAVA/PSP2/src/presentacion/GestionarProyectos.java</file>
+            <file>file:/C:/WORLD/JAVA/PSP2/src/presentacion/GestionarTareas.java</file>
+            <file>file:/C:/WORLD/JAVA/PSP2/src/datos/UsuarioData.java</file>
+            <file>file:/C:/WORLD/JAVA/PSP2/src/datos/IngenierosData.java</file>
+            <file>file:/C:/WORLD/JAVA/PSP2/src/presentacion/EqiuipoTrabajo.java</file>
+            <file>file:/C:/WORLD/JAVA/PSP2/src/presentacion/GestionarUsuarios.java</file>
+            <file>file:/C:/WORLD/JAVA/PSP2/src/datos/TareasData.java</file>
+            <file>file:/C:/WORLD/JAVA/PSP2/src/logica/Proyecto.java</file>
+            <file>file:/C:/WORLD/JAVA/PSP2/src/logica/EquipoTrabajo.java</file>
         </group>
     </open-files>
 </project-private>
