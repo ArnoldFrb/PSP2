@@ -34,13 +34,15 @@ public class UsuarioData implements UsuarioDAO{
         }
     }
     
-    public Usuario Consultar(String id) throws Exception {
+    public Usuario Consultar(int id) throws Exception {
+        Usuario usuario = new Usuario();
+
         try {
-            Usuario usuario = new Usuario();
 
             File file = new File("psp2_db\\Usuario.txt");
             FileReader read;
             BufferedReader buffered;
+
             if(file.exists()) {
 
                 read = new FileReader(file);
@@ -49,21 +51,18 @@ public class UsuarioData implements UsuarioDAO{
 
                 while((datos = buffered.readLine()) != null) {
                     String[] listaDatos = datos.split(";");
-                    
-                    usuario.setIdentificacion(Integer.parseInt(listaDatos[0]));
-                    usuario.setNombre(listaDatos[1]);
-                    usuario.setApellido(listaDatos[2]);
-                    usuario.setUsuario(listaDatos[3]);
-                    usuario.setContraseña(listaDatos[4]);
-                    usuario.setTipoUsurio(listaDatos[5]);
-            }
+
+                    if(listaDatos[0] == id){
+                        usuario.setIdentificacion(Integer.parseInt(listaDatos[0]));
+                        usuario.setNombre(listaDatos[1]);
+                        usuario.setApellido(listaDatos[2]);
+                        usuario.setUsuario(listaDatos[3]);
+                        usuario.setContraseña(listaDatos[4]);
+                        usuario.setTipoUsurio(listaDatos[5]);
+                    }
+                }
                 read.close();
                 buffered.close();
-                return usuario;
-            }
-            else
-            {
-                return null;
             }
         }
         catch(IOException e)
@@ -71,7 +70,7 @@ public class UsuarioData implements UsuarioDAO{
             System.out.println("A ocurrido un error");
             e.printStackTrace();
         }
-        return null;
+        return usuario;
     }
 
 }

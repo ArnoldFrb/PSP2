@@ -45,11 +45,79 @@ public class EquipoTrabajoData {
         }
     }
     
-    public EquipoTrabajo Consultar(String id) throws Exception {
+    public EquipoTrabajo Consultar(int id) throws Exception {
         try {
             EquipoTrabajo equipoTrabajo = new EquipoTrabajo();
 
             File file = new File("psp2_db\\EquiposDeTrabajo.txt");
+            FileReader read;
+            BufferedReader buffered;
+            if(file.exists()) {
+
+                read = new FileReader(file);
+                buffered = new BufferedReader(read);
+                String datos;
+
+                while((datos = buffered.readLine()) != null) {
+                    String[] listaDatos = datos.split(";");
+                    
+                    equipoTrabajo.setIdEquipoTrabajo(Integer.parseInt(listaDatos[0]));
+            }
+                read.close();
+                buffered.close();
+                return equipoTrabajo;
+            }
+            else
+            {
+                return null;
+            }
+        }
+        catch(IOException e)
+        {
+            System.out.println("A ocurrido un error");
+            e.printStackTrace();
+        }
+        return null;
+    }
+    public ArrayList<Tareas> ConsultarTareasEquipo(int id) throws Exception {
+        try {
+            EquipoTrabajo equipoTrabajo = new EquipoTrabajo();
+
+            File file = new File("psp2_db\\TareasEquiposDeTrabajo.txt");
+            FileReader read;
+            BufferedReader buffered;
+            if(file.exists()) {
+
+                read = new FileReader(file);
+                buffered = new BufferedReader(read);
+                String datos;
+
+                while((datos = buffered.readLine()) != null) {
+                    String[] listaDatos = datos.split(";");
+                    
+                    equipoTrabajo.setIdEquipoTrabajo(Integer.parseInt(listaDatos[0]));
+            }
+                read.close();
+                buffered.close();
+                return equipoTrabajo;
+            }
+            else
+            {
+                return null;
+            }
+        }
+        catch(IOException e)
+        {
+            System.out.println("A ocurrido un error");
+            e.printStackTrace();
+        }
+        return null;
+    }
+    public ArrayList<Ingeniero> ConsultarIngenierosEquipo(int id) throws Exception {
+        try {
+            EquipoTrabajo equipoTrabajo = new EquipoTrabajo();
+
+            File file = new File("psp2_db\\IngenierosEquiposDeTrabajo.txt");
             FileReader read;
             BufferedReader buffered;
             if(file.exists()) {

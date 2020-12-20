@@ -1,14 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package presentacion;
+import logica.EquipoTrabajo;
+import datos.EquipoTrabajoData;
 
-/**
- *
- * @author arnol
- */
 public class EqiuipoTrabajo extends javax.swing.JFrame {
 
     /**
@@ -289,7 +282,6 @@ public class EqiuipoTrabajo extends javax.swing.JFrame {
 
     private void jBRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBRegresarActionPerformed
         // TODO add your handling code here:
-        
         new EqiuipoTrabajo().setVisible(false);
         new MenuGerente().setVisible(true);
     }//GEN-LAST:event_jBRegresarActionPerformed
