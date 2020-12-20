@@ -5,12 +5,12 @@ public class Usuario {
     public String apellido;
     public String usuario;
     public String contraseña;
-    public String tipoUsurio;
+    public boolean tipoUsurio;
 
     public Usuario() {
     }
 
-    public Usuario(int identificacion, String nombre, String apellido, String usuario, String contraseña, String tipoUsurio) {
+    public Usuario(int identificacion, String nombre, String apellido, String usuario, String contraseña, boolean tipoUsurio) {
         this.identificacion = identificacion;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -39,7 +39,7 @@ public class Usuario {
         return contraseña;
     }
 
-    public String isTipoUsurio() {
+    public boolean isTipoUsurio() {
         return tipoUsurio;
     }
 
@@ -63,7 +63,7 @@ public class Usuario {
         this.contraseña = contraseña;
     }
 
-    public void setTipoUsurio(String tipoUsurio) {
+    public void setTipoUsurio(boolean tipoUsurio) {
         this.tipoUsurio = tipoUsurio;
     }
 

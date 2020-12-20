@@ -60,7 +60,7 @@ public class UsuarioData implements UsuarioDAO{
                         usuario.setApellido(listaDatos[2]);
                         usuario.setUsuario(listaDatos[3]);
                         usuario.setContraseña(listaDatos[4]);
-                        usuario.setTipoUsurio(listaDatos[5]);
+                        usuario.setTipoUsurio(Boolean.parseBoolean(listaDatos[5]));
                     }
                 }
                 read.close();
@@ -100,7 +100,8 @@ public class UsuarioData implements UsuarioDAO{
                     usuario.setApellido(listaDatos[2]);
                     usuario.setUsuario(listaDatos[3]);
                     usuario.setContraseña(listaDatos[4]);
-                    usuario.setTipoUsurio(listaDatos[5]);
+                    usuario.setTipoUsurio(Boolean.parseBoolean(listaDatos[5]));
+                    
                     list.add(usuario);
                 }
                 read.close();
@@ -114,6 +115,41 @@ public class UsuarioData implements UsuarioDAO{
             e.printStackTrace();
         }
         return flag ? list : null;
+    }
+    
+    public boolean login(String usuario, String contraseña) throws Exception {
+        
+        boolean flag =  false;
+
+        try {
+
+            File file = new File("psp2_db\\Usuario.txt");
+            FileReader read;
+            BufferedReader buffered;
+
+            if(file.exists()) {
+
+                read = new FileReader(file);
+                buffered = new BufferedReader(read);
+                String datos;
+
+                while((datos = buffered.readLine()) != null) {
+                    String[] listaDatos = datos.split(";");
+
+                    if(listaDatos[3].equals(usuario) && listaDatos[3].equals(contraseña)){
+                        flag =  true;
+                    }
+                }
+                read.close();
+                buffered.close();
+            }
+        }
+        catch(IOException e)
+        {
+            System.out.println("A ocurrido un error");
+            e.printStackTrace();
+        }
+        return flag;
     }
 
 }
