@@ -17,11 +17,14 @@ public class TareaBasico extends Tarea {
     
     private Date fechaEntrega;
 
-    public TareaBasico(Date fechaEntrega, String descripcionTarea, int duracionTarea, FaseProyecto faseProyecto, Ingeniero ingeniero, Date fechaInicio, String RolRequerido) {
+    public TareaBasico() {
+    }
+
+    public TareaBasico(Date fechaEntrega, String descripcionTarea, int duracionTarea, String faseProyecto, String ingeniero, Date fechaInicio, String RolRequerido) {
         super(descripcionTarea, duracionTarea, faseProyecto, ingeniero, fechaInicio, RolRequerido);
         this.fechaEntrega = fechaEntrega;
     }
-
+    
     public Date getFechaEntrega() {
         return fechaEntrega;
     }

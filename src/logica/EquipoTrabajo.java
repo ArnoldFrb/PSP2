@@ -34,7 +34,7 @@ public class EquipoTrabajo implements InterfaceAñadirIngenieros {
         
         System.out.println("Lista de tareas pendientes: ");
          for (Tarea tarea : proyecto.getListaTareas()) {
-            if(tarea.getEstadoTarea() == EstadoTarea.pendiente)
+            if(tarea.getEstadoTarea() == "pendiente")
             {
                 listaTareasPendientes.add(tarea);
             }
@@ -48,7 +48,7 @@ public class EquipoTrabajo implements InterfaceAñadirIngenieros {
        System.out.println("Lista de tareas ejecutadas: ");
        
         for (Tarea tarea : proyecto.getListaTareas()) {
-            if(tarea.getEstadoTarea() == EstadoTarea.ejecutada)
+            if(tarea.getEstadoTarea() == "ejecutada")
             {
                 listaTareasEjecutadas.add(tarea);
             }
@@ -58,7 +58,7 @@ public class EquipoTrabajo implements InterfaceAñadirIngenieros {
     }
 
     public void FinalizarTarea(Tarea tarea) {
-       tarea.setEstadoTarea(EstadoTarea.ejecutada);
+       tarea.setEstadoTarea("ejecutada");
     }
     
     public void recorrerLista(ArrayList<Tarea> listaTareas)

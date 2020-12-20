@@ -12,19 +12,22 @@ import java.util.Date;
  *
  * @author juana
  */
-public abstract class Tarea {
+public class Tarea {
     
     private int identificadorTarea;
     private String descripcionTarea;
     private int duracionTarea;
-    private FaseProyecto faseProyecto;
-    private Ingeniero ingeniero;
+    private String faseProyecto;
+    private String ingeniero;
     private Date fechaInicio;
-    private EstadoTarea estadoTarea;
+    private String estadoTarea;
     private String RolRequerido;
     private String Justificacion;
 
-    public Tarea(String descripcionTarea, int duracionTarea, FaseProyecto faseProyecto, Ingeniero ingeniero, Date fechaInicio, String RolRequerido) {
+    public Tarea() {
+    }
+
+    public Tarea(String descripcionTarea, int duracionTarea, String faseProyecto, String ingeniero, Date fechaInicio, String RolRequerido) {
         
         this.identificadorTarea++;
         this.descripcionTarea = descripcionTarea;
@@ -33,7 +36,7 @@ public abstract class Tarea {
         this.ingeniero = ingeniero;
         this.fechaInicio = fechaInicio;
         this.RolRequerido = RolRequerido;
-        this.estadoTarea = EstadoTarea.pendiente;
+        this.estadoTarea = "pendiente";
         
     }
 
@@ -69,19 +72,19 @@ public abstract class Tarea {
         this.duracionTarea = duracionTarea;
     }
 
-    public FaseProyecto getFaseProyecto() {
+    public String getFaseProyecto() {
         return faseProyecto;
     }
 
-    public void setFaseProyecto(FaseProyecto faseProyecto) {
+    public void setFaseProyecto(String faseProyecto) {
         this.faseProyecto = faseProyecto;
     }
 
-    public Ingeniero getIngeniero() {
+    public String getIngeniero() {
         return ingeniero;
     }
 
-    public void setIngeniero(Ingeniero ingeniero) {
+    public void setIngeniero(String ingeniero) {
         this.ingeniero = ingeniero;
     }
 
@@ -93,11 +96,11 @@ public abstract class Tarea {
         this.fechaInicio = fechaInicio;
     }
 
-    public EstadoTarea getEstadoTarea() {
+    public String getEstadoTarea() {
         return estadoTarea;
     }
 
-    public void setEstadoTarea(EstadoTarea estadoTarea) {
+    public void setEstadoTarea(String estadoTarea) {
         this.estadoTarea = estadoTarea;
     }
 

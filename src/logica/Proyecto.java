@@ -108,10 +108,10 @@ public class Proyecto {
                    System.out.println("Digite la duracion de la tarea");
                    int duracion =  lector.nextInt();
                    System.out.println("Digite la fase de proyecto");
-                   FaseProyecto faseProyecto = leerFaseProyecto(lector.nextLine());
+                   String faseProyecto = lector.nextLine();
                    System.out.println("Digite la identificacion del ingeniero");
                    String identificacion = lector.nextLine();
-                   Ingeniero ingeniero = BuscarIngeniero(equipoTrabajo, identificacion);
+                   String ingeniero = lector.nextLine();
                    System.out.println("Digite la fecha de inicio");
                    /*
                    Mes/dia/año
@@ -127,7 +127,7 @@ public class Proyecto {
                    System.out.println("Digite el rol requerido del ingeniero");
                    String rolRequerido = lector.nextLine();
                    
-                   Tarea tarea = new TareaBasico(fechaEntrega,descripcion, duracion, faseProyecto, ingeniero, fechaInicio, rolRequerido);
+                   Tarea tarea = new TareaBasico(fechaEntrega, descripcion, duracion, faseProyecto, ingeniero, fechaInicio, rolRequerido);
                    añadirTarea(tarea);
                  break;
              case "complementaria":
@@ -136,10 +136,10 @@ public class Proyecto {
                    System.out.println("Digite la duracion de la tarea");
                    int duracionC =  lector.nextInt();
                    System.out.println("Digite la fase de proyecto");
-                   FaseProyecto faseProyectoC = leerFaseProyecto(lector.nextLine());
+                   String faseProyectoC = lector.nextLine();
                    System.out.println("Digite la identificacion del ingeniero");
                    String identificacionC = lector.nextLine();
-                   Ingeniero ingenieroC = BuscarIngeniero(equipoTrabajo, identificacionC);
+                   String ingenieroC = lector.nextLine();
                    System.out.println("Digite la fecha de inicio");
                    /*
                    Mes/dia/año
