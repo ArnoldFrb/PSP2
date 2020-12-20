@@ -26,13 +26,13 @@ public class EquipoTrabajoData {
                 write = new FileWriter(file, true);
                 buffered = new BufferedWriter(write);
                 buffered.newLine();
-                buffered.write(equipoTrabajo.datosParaArchivo());
+                //buffered.write(equipoTrabajo.datosParaArchivo());
             }
             else
             {
                 write = new FileWriter(file, true);
                 buffered = new BufferedWriter(write);
-                buffered.write(equipoTrabajo.datosParaArchivo());
+                //buffered.write(equipoTrabajo.datosParaArchivo());
             }
             write.close();
             buffered.close();
