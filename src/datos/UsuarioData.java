@@ -52,7 +52,7 @@ public class UsuarioData implements UsuarioDAO{
                 while((datos = buffered.readLine()) != null) {
                     String[] listaDatos = datos.split(";");
 
-                    if(listaDatos[0] == id){
+                    if(Integer.parseInt(listaDatos[0]) == id){
                         usuario.setIdentificacion(Integer.parseInt(listaDatos[0]));
                         usuario.setNombre(listaDatos[1]);
                         usuario.setApellido(listaDatos[2]);

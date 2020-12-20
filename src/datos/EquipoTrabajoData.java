@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import logica.Ingeniero;
 import logica.EquipoTrabajo;
+import logica.Tarea;
 /**
  *
  * @author Cristo Te Ama...!!
@@ -79,7 +80,7 @@ public class EquipoTrabajoData {
         }
         return null;
     }
-    public ArrayList<Tareas> ConsultarTareasEquipo(int id) throws Exception {
+    public ArrayList<Tarea> ConsultarTareasEquipo(int id) throws Exception {
         try {
             EquipoTrabajo equipoTrabajo = new EquipoTrabajo();
 

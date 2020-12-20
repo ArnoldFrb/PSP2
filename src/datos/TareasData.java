@@ -48,7 +48,7 @@ public class TareasData {
     
     public List<Tarea> readFile() throws Exception
     {
-        List<Tarea> list = new List<Tarea>();
+        List<Tarea> list = new ArrayList();
         try
         {
             File file = new File("psp2_db\\Ingenieros.txt");
