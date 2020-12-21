@@ -3,6 +3,7 @@ import DAO.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import logica.Usuario;
 
 public class UsuarioData implements UsuarioDAO{
@@ -16,13 +17,11 @@ public class UsuarioData implements UsuarioDAO{
         try {
             File file = new File("psp2_db\\Usuarios.txt");
             FileWriter write;
-            BufferedWriter buffered;
+           
             if(file.exists())
             {
                 write = new FileWriter(file, true);
-                buffered = new BufferedWriter(write);
-                buffered.newLine();
-                buffered.write(usuario.datosParaArchivo());
+                write.write(usuario.datosParaArchivo());
                 
                 res = "Se añadio un nuevo registro";
                 flag = true;
@@ -30,16 +29,12 @@ public class UsuarioData implements UsuarioDAO{
             else
             {
                 write = new FileWriter(file, true);
-                buffered = new BufferedWriter(write);
-                buffered.write(usuario.datosParaArchivo());
+                write.write(usuario.datosParaArchivo());
                 
                 res = "Se añadio un registro";
                 flag = true;
             }
             write.close();
-            buffered.close();
-
-            return "Todo melo";
         }
         catch(IOException e)
         {
@@ -60,15 +55,14 @@ public class UsuarioData implements UsuarioDAO{
 
             File file = new File("psp2_db\\Usuario.txt");
             FileReader read;
-            BufferedReader buffered;
 
             if(file.exists()) {
 
                 read = new FileReader(file);
-                buffered = new BufferedReader(read);
                 String datos;
-
-                while((datos = buffered.readLine()) != null) {
+                Scanner readScan = new Scanner(read);
+                
+                while((datos = readScan.nextLine()) != null) {
                     String[] listaDatos = datos.split(";");
 
                     if(Integer.parseInt(listaDatos[0]) == querydata){
@@ -83,7 +77,7 @@ public class UsuarioData implements UsuarioDAO{
                     }
                 }
                 read.close();
-                buffered.close();
+                readScan.close();
             }
         }
         catch(IOException e)
@@ -103,15 +97,15 @@ public class UsuarioData implements UsuarioDAO{
 
             File file = new File("psp2_db\\Usuario.txt");
             FileReader read;
-            BufferedReader buffered;
 
             if(file.exists()) {
 
                 read = new FileReader(file);
-                buffered = new BufferedReader(read);
+                Scanner readScan = new Scanner(read);
                 String datos;
 
-                while((datos = buffered.readLine()) != null) {
+                while((datos = readScan.nextLine()) != null) {
+                    
                     String[] listaDatos = datos.split(";");
                     Usuario usuario = new Usuario();
                     
@@ -127,7 +121,7 @@ public class UsuarioData implements UsuarioDAO{
                     flag = true;
                 }
                 read.close();
-                buffered.close();
+                readScan.close();
             }
         }
         catch(IOException e)
@@ -138,31 +132,40 @@ public class UsuarioData implements UsuarioDAO{
         return flag ? list : null;
     }
     
-    public boolean login(String usuario, String contraseña) throws Exception {
+    public String login(String usuario, String contraseña) throws Exception {
         
         boolean flag =  false;
+        String res = "";
 
         try {
 
             File file = new File("psp2_db\\Usuario.txt");
             FileReader read;
-            BufferedReader buffered;
 
             if(file.exists()) {
 
                 read = new FileReader(file);
-                buffered = new BufferedReader(read);
+                Scanner readScan = new Scanner(read);
                 String datos;
 
-                while((datos = buffered.readLine()) != null) {
+                while((datos = readScan.nextLine()) != null) {
                     String[] listaDatos = datos.split(";");
-
-                    if(listaDatos[3].equals(usuario) && listaDatos[3].equals(contraseña)){
-                        flag =  true;
+                    
+                    System.out.println(datos);
+                    
+                    if(listaDatos[3].equals(usuario) && listaDatos[4].equals(contraseña)){
+                        if(Boolean.parseBoolean(listaDatos[5]))
+                        {
+                            res = "Gerente";
+                        }
+                        else
+                        {
+                            res = "Equipo";
+                        }
                     }
                 }
                 read.close();
-                buffered.close();
+                readScan.close();
             }
         }
         catch(IOException e)
@@ -170,7 +173,7 @@ public class UsuarioData implements UsuarioDAO{
             System.out.println("A ocurrido un error");
             e.printStackTrace();
         }
-        return flag;
+        return flag ? res : null ;
     }
 
 }

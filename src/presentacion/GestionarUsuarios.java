@@ -5,6 +5,11 @@
  */
 package presentacion;
 
+import datos.UsuarioData;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import logica.Usuario;
+
 /**
  *
  * @author arnol
@@ -40,16 +45,16 @@ public class GestionarUsuarios extends javax.swing.JFrame {
         jTextField43 = new javax.swing.JTextField();
         jPanel14 = new javax.swing.JPanel();
         jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jtfContraseña1 = new javax.swing.JTextField();
-        jtfUsuario2 = new javax.swing.JTextField();
+        jBGuardar = new javax.swing.JButton();
+        jTFContraseñas = new javax.swing.JTextField();
+        jTFUsuarios = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jtfUsuario3 = new javax.swing.JTextField();
+        jTFApellido = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jtfUsuario1 = new javax.swing.JTextField();
+        jTFNombre = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jtfUsuario4 = new javax.swing.JTextField();
+        jTFIdentificacion = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jBRegresar = new javax.swing.JButton();
@@ -102,11 +107,11 @@ public class GestionarUsuarios extends javax.swing.JFrame {
             jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel21Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButton11)
-                        .addComponent(jTextField43, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jTextField43, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
@@ -114,31 +119,36 @@ public class GestionarUsuarios extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jTabbedPane6.addTab("Ver Equipo", jPanel21);
+        jTabbedPane6.addTab("Ver Usuarios", jPanel21);
 
         jPanel14.setBackground(new java.awt.Color(153, 255, 153));
 
         jButton9.setText("Eliminar");
 
-        jButton10.setText("Guardar");
+        jBGuardar.setText("Guardar");
+        jBGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBGuardarActionPerformed(evt);
+            }
+        });
 
-        jtfContraseña1.setName("jtfContraseña"); // NOI18N
+        jTFContraseñas.setName("jtfContraseña"); // NOI18N
 
-        jtfUsuario2.setName("jtfUsuario"); // NOI18N
+        jTFUsuarios.setName("jtfUsuario"); // NOI18N
 
         jLabel6.setText("Usuario");
 
         jLabel4.setText("Contraseña");
 
-        jtfUsuario3.setName("jtfUsuario"); // NOI18N
+        jTFApellido.setName("jtfUsuario"); // NOI18N
 
-        jLabel7.setText("Apallido");
+        jLabel7.setText("Apellido");
 
-        jtfUsuario1.setName("jtfUsuario"); // NOI18N
+        jTFNombre.setName("jtfUsuario"); // NOI18N
 
         jLabel3.setText("Nombre");
 
-        jtfUsuario4.setName("jtfUsuario"); // NOI18N
+        jTFIdentificacion.setName("jtfUsuario"); // NOI18N
 
         jLabel8.setText("Identificacion");
 
@@ -148,7 +158,7 @@ public class GestionarUsuarios extends javax.swing.JFrame {
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel14Layout.createSequentialGroup()
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jtfUsuario3, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTFApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel14Layout.createSequentialGroup()
                             .addGap(200, 200, 200)
@@ -156,20 +166,20 @@ public class GestionarUsuarios extends javax.swing.JFrame {
                                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(jPanel14Layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jtfUsuario4, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jTFIdentificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING))
                                 .addGroup(jPanel14Layout.createSequentialGroup()
                                     .addGap(1, 1, 1)
                                     .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel3)
-                                        .addComponent(jtfUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(jTFNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGroup(jPanel14Layout.createSequentialGroup()
                             .addGap(256, 256, 256)
                             .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(jPanel14Layout.createSequentialGroup()
                                     .addComponent(jButton9)
                                     .addGap(5, 5, 5)
-                                    .addComponent(jButton10))
+                                    .addComponent(jBGuardar))
                                 .addGroup(jPanel14Layout.createSequentialGroup()
                                     .addComponent(jLabel7)
                                     .addGap(26, 26, 26))))))
@@ -178,12 +188,12 @@ public class GestionarUsuarios extends javax.swing.JFrame {
                 .addGroup(jPanel14Layout.createSequentialGroup()
                     .addGap(202, 202, 202)
                     .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jtfUsuario2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTFUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel6))
                     .addGap(18, 18, 18)
                     .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel4)
-                        .addComponent(jtfContraseña1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTFContraseñas, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addContainerGap(203, Short.MAX_VALUE)))
         );
         jPanel14Layout.setVerticalGroup(
@@ -192,21 +202,21 @@ public class GestionarUsuarios extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jtfUsuario4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTFIdentificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel14Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtfUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTFNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel14Layout.createSequentialGroup()
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtfUsuario3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jTFApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jBGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
             .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel14Layout.createSequentialGroup()
@@ -215,17 +225,17 @@ public class GestionarUsuarios extends javax.swing.JFrame {
                         .addGroup(jPanel14Layout.createSequentialGroup()
                             .addComponent(jLabel6)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jtfUsuario2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTFUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel14Layout.createSequentialGroup()
                             .addComponent(jLabel4)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jtfContraseña1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jTFContraseñas, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addContainerGap(75, Short.MAX_VALUE)))
         );
 
-        jTabbedPane6.addTab("Crear Equipos", jPanel14);
+        jTabbedPane6.addTab("Crear Usuarios", jPanel14);
 
-        jLabel5.setText("Gestionar Equipo");
+        jLabel5.setText("Gestionar Usuarios");
 
         jBRegresar.setText("Regresar");
         jBRegresar.addActionListener(new java.awt.event.ActionListener() {
@@ -299,6 +309,27 @@ public class GestionarUsuarios extends javax.swing.JFrame {
         new MenuGerente().setVisible(true);
     }//GEN-LAST:event_jBRegresarActionPerformed
 
+    private void jBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarActionPerformed
+        // TODO add your handling code here:
+        Usuario user = new Usuario();
+        
+        user.setIdentificacion(Integer.parseInt(jTFIdentificacion.getText()));
+        user.setNombre(jTFNombre.getText());
+        user.setApellido(jTFApellido.getText());
+        user.setUsuario(jTFUsuarios.getText());
+        user.setContraseña(jTFContraseñas.getText());
+        user.setTipoUsurio(true);
+        
+        try 
+        {
+            new UsuarioData().writeFile(user);
+        } 
+        catch (Exception ex) 
+        {
+            Logger.getLogger(Psp2.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jBGuardarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -335,9 +366,9 @@ public class GestionarUsuarios extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBGuardar;
     private javax.swing.JButton jBRegresar;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
@@ -352,13 +383,13 @@ public class GestionarUsuarios extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel21;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JTextField jTFApellido;
+    private javax.swing.JTextField jTFContraseñas;
+    private javax.swing.JTextField jTFIdentificacion;
+    private javax.swing.JTextField jTFNombre;
+    private javax.swing.JTextField jTFUsuarios;
     private javax.swing.JTabbedPane jTabbedPane6;
     private javax.swing.JTable jTable5;
     private javax.swing.JTextField jTextField43;
-    private javax.swing.JTextField jtfContraseña1;
-    private javax.swing.JTextField jtfUsuario1;
-    private javax.swing.JTextField jtfUsuario2;
-    private javax.swing.JTextField jtfUsuario3;
-    private javax.swing.JTextField jtfUsuario4;
     // End of variables declaration//GEN-END:variables
 }

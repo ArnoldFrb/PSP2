@@ -224,18 +224,26 @@ public class Psp2 extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             // TODO add your handling code here:
-            boolean flag = new UsuarioData().login(jTFUsuario.getText(), jTFContraseña.getText());
+            String flag = new UsuarioData().login(jTFUsuario.getText(), jTFContraseña.getText());
 
-            if(flag)
+            if(flag != null)
             {
-                new Psp2().setVisible(false);
-                new MenuGerente().setVisible(true);
+                if(flag.equals("Gerente"))
+                {
+                    new Psp2().setVisible(false);
+                    new MenuGerente().setVisible(true);
+                }
+                else
+                {
+                    new Psp2().setVisible(false);
+                    new ManuEquipo().setVisible(true);
+                }
             }
             else
             {
-                new Psp2().setVisible(false);
-                new ManuEquipo().setVisible(true);
+                System.out.println("No se pudo " + flag);
             }
+            
         } catch (Exception ex) {
             Logger.getLogger(Psp2.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -248,7 +256,7 @@ public class Psp2 extends javax.swing.JFrame {
         user.setIdentificacion(Integer.parseInt(jTFIdentificacion.getText()));
         user.setNombre(jTFNombre.getText());
         user.setApellido(jTFApellido.getText());
-        user.setUsuario(jTFUsuarios.getName());
+        user.setUsuario(jTFUsuarios.getText());
         user.setContraseña(jTFContraseñas.getText());
         user.setTipoUsurio(true);
         
