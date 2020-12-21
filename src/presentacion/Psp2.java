@@ -37,26 +37,17 @@ public class Psp2 extends javax.swing.JFrame {
         jbtIniciarSeccion = new javax.swing.JButton();
         jpnRegistrarse = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-<<<<<<< Updated upstream
-        jtfContraseña1 = new javax.swing.JTextField();
-=======
         jTFContraseñas = new javax.swing.JTextField();
->>>>>>> Stashed changes
         jbtRegistrarse = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        jtfUsuario2 = new javax.swing.JTextField();
+        jTFUsuarios = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jtfUsuario4 = new javax.swing.JTextField();
+        jTFIdentificacion = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jtfUsuario1 = new javax.swing.JTextField();
+        jTFNombre = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-<<<<<<< Updated upstream
-        jtfUsuario3 = new javax.swing.JTextField();
-        jtfUsuario = new javax.swing.JTextField();
-=======
-        jTFApellidos = new javax.swing.JTextField();
+        jTFApellido = new javax.swing.JTextField();
         jTFUsuario = new javax.swing.JTextField();
->>>>>>> Stashed changes
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -76,11 +67,7 @@ public class Psp2 extends javax.swing.JFrame {
 
         jLabel4.setText("Contraseña");
 
-<<<<<<< Updated upstream
-        jtfContraseña1.setName("jtfContraseña"); // NOI18N
-=======
         jTFContraseñas.setName("jtfContraseña"); // NOI18N
->>>>>>> Stashed changes
 
         jbtRegistrarse.setText("Registrarse");
         jbtRegistrarse.addActionListener(new java.awt.event.ActionListener() {
@@ -91,19 +78,19 @@ public class Psp2 extends javax.swing.JFrame {
 
         jLabel5.setText("Usuario");
 
-        jtfUsuario2.setName("jtfUsuario"); // NOI18N
+        jTFUsuarios.setName("jtfUsuario"); // NOI18N
 
         jLabel7.setText("Identificacion");
 
-        jtfUsuario4.setName("jtfUsuario"); // NOI18N
+        jTFIdentificacion.setName("jtfUsuario"); // NOI18N
 
         jLabel3.setText("Nombre");
 
-        jtfUsuario1.setName("jtfUsuario"); // NOI18N
+        jTFNombre.setName("jtfUsuario"); // NOI18N
 
-        jLabel6.setText("Apallido");
+        jLabel6.setText("Apellido");
 
-        jtfUsuario3.setName("jtfUsuario"); // NOI18N
+        jTFApellido.setName("jtfUsuario"); // NOI18N
 
         javax.swing.GroupLayout jpnRegistrarseLayout = new javax.swing.GroupLayout(jpnRegistrarse);
         jpnRegistrarse.setLayout(jpnRegistrarseLayout);
@@ -117,7 +104,7 @@ public class Psp2 extends javax.swing.JFrame {
                 .addGroup(jpnRegistrarseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jpnRegistrarseLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jtfUsuario4, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTFIdentificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jpnRegistrarseLayout.createSequentialGroup()
                         .addGap(34, 34, 34)
                         .addGroup(jpnRegistrarseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,19 +113,15 @@ public class Psp2 extends javax.swing.JFrame {
                                 .addGroup(jpnRegistrarseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jpnRegistrarseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jtfUsuario1, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jtfUsuario2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jTFNombre, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jTFUsuarios, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jLabel5))
                                 .addGap(18, 18, 18)
                                 .addGroup(jpnRegistrarseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel6)
-                                    .addComponent(jtfUsuario3)
+                                    .addComponent(jTFApellido)
                                     .addComponent(jLabel4)
-<<<<<<< Updated upstream
-                                    .addComponent(jtfContraseña1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-=======
                                     .addComponent(jTFContraseñas, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))))))
->>>>>>> Stashed changes
                 .addContainerGap(35, Short.MAX_VALUE))
         );
         jpnRegistrarseLayout.setVerticalGroup(
@@ -147,7 +130,7 @@ public class Psp2 extends javax.swing.JFrame {
                 .addGap(56, 56, 56)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jtfUsuario4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTFIdentificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jpnRegistrarseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jpnRegistrarseLayout.createSequentialGroup()
@@ -155,23 +138,19 @@ public class Psp2 extends javax.swing.JFrame {
                             .addGroup(jpnRegistrarseLayout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jtfUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jTFNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jpnRegistrarseLayout.createSequentialGroup()
                                 .addComponent(jLabel6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jtfUsuario3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jTFApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtfUsuario2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTFUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jpnRegistrarseLayout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-<<<<<<< Updated upstream
-                        .addComponent(jtfContraseña1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-=======
                         .addComponent(jTFContraseñas, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
->>>>>>> Stashed changes
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                 .addComponent(jbtRegistrarse)
                 .addGap(32, 32, 32))
@@ -242,6 +221,7 @@ public class Psp2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtIniciarSeccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtIniciarSeccionActionPerformed
+        // TODO add your handling code here:
         try {
             // TODO add your handling code here:
             boolean flag = new UsuarioData().login(jTFUsuario.getText(), jTFContraseña.getText());
@@ -267,7 +247,7 @@ public class Psp2 extends javax.swing.JFrame {
         
         user.setIdentificacion(Integer.parseInt(jTFIdentificacion.getText()));
         user.setNombre(jTFNombre.getText());
-        user.setApellido(jTFApellidos.getText());
+        user.setApellido(jTFApellido.getText());
         user.setUsuario(jTFUsuarios.getName());
         user.setContraseña(jTFContraseñas.getText());
         user.setTipoUsurio(true);
@@ -308,6 +288,7 @@ public class Psp2 extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Psp2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -326,19 +307,7 @@ public class Psp2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-<<<<<<< Updated upstream
-    private javax.swing.JButton jbtIniciarSeccion;
-    private javax.swing.JButton jbtRegistrarse;
-    private javax.swing.JPanel jpnRegistrarse;
-    private javax.swing.JTextField jtfContraseña;
-    private javax.swing.JTextField jtfContraseña1;
-    private javax.swing.JTextField jtfUsuario;
-    private javax.swing.JTextField jtfUsuario1;
-    private javax.swing.JTextField jtfUsuario2;
-    private javax.swing.JTextField jtfUsuario3;
-    private javax.swing.JTextField jtfUsuario4;
-=======
-    private javax.swing.JTextField jTFApellidos;
+    private javax.swing.JTextField jTFApellido;
     private javax.swing.JTextField jTFContraseña;
     private javax.swing.JTextField jTFContraseñas;
     private javax.swing.JTextField jTFIdentificacion;
@@ -348,6 +317,5 @@ public class Psp2 extends javax.swing.JFrame {
     private javax.swing.JButton jbtIniciarSeccion;
     private javax.swing.JButton jbtRegistrarse;
     private javax.swing.JPanel jpnRegistrarse;
->>>>>>> Stashed changes
     // End of variables declaration//GEN-END:variables
 }
