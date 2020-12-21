@@ -6,6 +6,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import logica.Proyecto;
+import logica.Tarea;
+import logica.EquipoTrabajo;
+
 public class ProyectoData implements ProyectoDAO{
     
     public String writeFile(Proyecto proyecto) throws Exception {
@@ -46,9 +49,90 @@ public class ProyectoData implements ProyectoDAO{
         
         return flag ? res : null;
     }
+
+    public String writeFileTarea(Proyecto proyecto) throws Exception {
+        
+        String res = "";
+        boolean flag = false;
+        
+        try {
+            File file = new File("psp2_db\\TareaProyecto.txt");
+            FileWriter write;
+            BufferedWriter buffered;
+            if(file.exists()) {
+                write = new FileWriter(file, true);
+                buffered = new BufferedWriter(write);
+                buffered.newLine();
+                buffered.write(proyecto.datosParaArchivo());
+                
+                res = "Se añadio un nuevo registro";
+                flag = true;
+            }
+            else
+            {
+                write = new FileWriter(file, true);
+                buffered = new BufferedWriter(write);
+                for (Tarea tarea : proyecto.getListaTareas()) {
+                    String var = proyecto.getNombreProyecto()+";"+tarea.datosParaArchivo()+"\n";
+                    buffered.write(var);
+                }
+                res = "Se añadio un registro";
+                flag = true;
+            }
+            write.close();
+            buffered.close();
+        }
+        catch(IOException e)
+        {
+            System.out.println("A ocurrido un error");
+            e.printStackTrace();
+        }
+        
+        return flag ? res : null;
+    }
     
-    public List<Proyecto> readFile() throws Exception
-    {
+    public String writeFileEquipo(Proyecto proyecto) throws Exception {
+        
+        String res = "";
+        boolean flag = false;
+        
+        try {
+            File file = new File("psp2_db\\TareaProyecto.txt");
+            FileWriter write;
+            BufferedWriter buffered;
+            if(file.exists()) {
+                write = new FileWriter(file, true);
+                buffered = new BufferedWriter(write);
+                buffered.newLine();
+                buffered.write(proyecto.datosParaArchivo());
+                
+                res = "Se añadio un nuevo registro";
+                flag = true;
+            }
+            else
+            {
+                write = new FileWriter(file, true);
+                buffered = new BufferedWriter(write);
+                for (EquipoTrabajo equipo : proyecto.getListaEquipoTrabajo()) {
+                    String var = proyecto.getNombreProyecto()+";"+equipo.datosParaArchivo()+"\n";
+                    buffered.write(var);
+                }
+                res = "Se añadio un registro";
+                flag = true;
+            }
+            write.close();
+            buffered.close();
+        }
+        catch(IOException e)
+        {
+            System.out.println("A ocurrido un error");
+            e.printStackTrace();
+        }
+        
+        return flag ? res : null;
+    }
+
+    public List<Proyecto> readFile() throws Exception {
         List<Proyecto> list = new ArrayList();
         boolean flag = false;
         

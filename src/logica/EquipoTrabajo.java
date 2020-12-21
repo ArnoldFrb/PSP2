@@ -89,4 +89,12 @@ public class EquipoTrabajo{
     public String toString() {
         return "Proyecto{" + "idEquipoTrabajo=" + idEquipoTrabajo + "}";
     }
+
+    public String datosParaArchivo(){
+        return this.tareas+";"+
+        this.ingenieros+";"+
+        this.listaTareasPendientes+";"+
+        this.listaTareasEjecutadas+";"+
+        this.listaTareasNoEjecutadas+"\n";
+    }
 }
