@@ -318,7 +318,7 @@ public class GestionarUsuarios extends javax.swing.JFrame {
         user.setApellido(jTFApellido.getText());
         user.setUsuario(jTFUsuarios.getText());
         user.setContraseña(jTFContraseñas.getText());
-        user.setTipoUsurio(true);
+        user.setTipoUsurio(false);
         
         try 
         {

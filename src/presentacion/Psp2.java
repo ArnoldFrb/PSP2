@@ -224,11 +224,11 @@ public class Psp2 extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             // TODO add your handling code here:
-            String flag = new UsuarioData().login(jTFUsuario.getText(), jTFContraseña.getText());
+            String res = new UsuarioData().login(jTFUsuario.getText(), jTFContraseña.getText());
 
-            if(flag != null)
+            if(res != null)
             {
-                if(flag.equals("Gerente"))
+                if(res.equals("Gerente"))
                 {
                     new Psp2().setVisible(false);
                     new MenuGerente().setVisible(true);
@@ -241,7 +241,7 @@ public class Psp2 extends javax.swing.JFrame {
             }
             else
             {
-                System.out.println("No se pudo " + flag);
+                System.out.println("No se pudo " + res);
             }
             
         } catch (Exception ex) {

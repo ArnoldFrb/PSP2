@@ -8,6 +8,14 @@ import logica.Usuario;
 
 public class UsuarioData implements UsuarioDAO{
 
+    private File file;
+
+    public UsuarioData() {
+        file = new File("psp2_db\\Usuarios.txt");
+    }
+    
+    
+    
     @Override
     public String writeFile(Usuario usuario) throws Exception {
         
@@ -15,7 +23,6 @@ public class UsuarioData implements UsuarioDAO{
         boolean flag = false;
         
         try {
-            File file = new File("psp2_db\\Usuarios.txt");
             FileWriter write;
            
             if(file.exists())
@@ -52,8 +59,6 @@ public class UsuarioData implements UsuarioDAO{
         boolean flag = false;
 
         try {
-
-            File file = new File("psp2_db\\Usuario.txt");
             FileReader read;
 
             if(file.exists()) {
@@ -94,8 +99,7 @@ public class UsuarioData implements UsuarioDAO{
         List<Usuario> list = new ArrayList();
         boolean flag = false;
         try {
-
-            File file = new File("psp2_db\\Usuario.txt");
+            
             FileReader read;
 
             if(file.exists()) {
@@ -139,19 +143,14 @@ public class UsuarioData implements UsuarioDAO{
 
         try {
 
-            File file = new File("psp2_db\\Usuario.txt");
-            FileReader read;
-
             if(file.exists()) {
-
-                read = new FileReader(file);
-                Scanner readScan = new Scanner(read);
+                
+                Scanner readScan = new Scanner(file);
                 String datos;
 
-                while((datos = readScan.nextLine()) != null) {
-                    String[] listaDatos = datos.split(";");
+                while((datos = readScan.next()) != null) {
                     
-                    System.out.println(datos);
+                    String[] listaDatos = datos.split(";");
                     
                     if(listaDatos[3].equals(usuario) && listaDatos[4].equals(contraseña)){
                         if(Boolean.parseBoolean(listaDatos[5]))
@@ -162,9 +161,10 @@ public class UsuarioData implements UsuarioDAO{
                         {
                             res = "Equipo";
                         }
+                        flag = true;
                     }
                 }
-                read.close();
+                
                 readScan.close();
             }
         }
