@@ -2,6 +2,8 @@ package DAO;
 import logica.Proyecto;
 import java.util.List;
 
+//Interfaz que se implementa en la clase proyectoData,
+//  con los metodos necesarios para el manejo de datos.
 public interface ProyectoDAO {
     String writeFile (Proyecto proyecto) throws Exception;
     Proyecto queryFile(int queryData) throws Exception;
