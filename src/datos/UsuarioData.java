@@ -136,6 +136,7 @@ public class UsuarioData implements UsuarioDAO{
         return flag ? list : null;
     }
     
+    @Override
     public String login(String usuario, String contraseña) throws Exception {
         
         boolean flag =  false;
@@ -148,12 +149,13 @@ public class UsuarioData implements UsuarioDAO{
                 Scanner readScan = new Scanner(file);
                 String datos;
 
-                while((datos = readScan.next()) != null) {
-                    
+                while(readScan.hasNext()) {
+                    datos = readScan.nextLine();
                     String[] listaDatos = datos.split(";");
                     
                     if(listaDatos[3].equals(usuario) && listaDatos[4].equals(contraseña)){
-                        if(Boolean.parseBoolean(listaDatos[5]))
+                        
+                        if(listaDatos[5].equals("true"))
                         {
                             res = "Gerente";
                         }
@@ -173,7 +175,8 @@ public class UsuarioData implements UsuarioDAO{
             System.out.println("A ocurrido un error");
             e.printStackTrace();
         }
-        return flag ? res : null ;
+        
+        return flag ? res : null;
     }
 
 }

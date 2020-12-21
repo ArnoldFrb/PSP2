@@ -8,4 +8,5 @@ public interface UsuarioDAO {
     String writeFile(Usuario usuario) throws Exception;
     //Metodo que consulta en el archivo y retorna un objeto de tipo usuario
     Usuario queryFile(int querydata) throws Exception;
+    String login(String usuario, String contraseña) throws Exception;
 }
