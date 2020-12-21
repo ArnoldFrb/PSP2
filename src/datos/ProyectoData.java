@@ -68,13 +68,13 @@ public class ProyectoData implements ProyectoDAO{
                     String[] listDatos = datos.split(";");
                     Proyecto proyecto = new Proyecto();
                     
-                    proyecto.setDescripcionTarea(listDatos[0]);
-                    proyecto.setDuracionTarea(Integer.parseInt(listDatos[1]));
-                    proyecto.setFaseProyecto(listDatos[2]);
-                    proyecto.setIngeniero(listDatos[3]);
-                    proyecto.setFechaInicio(new SimpleDateFormat("dd/MM/yyyy").parse(listDatos[4]));
-                    proyecto.setRolRequerido(listDatos[5]);
-                    proyecto.setEstadoTarea(listDatos[6]);
+                    proyecto.setNombreProyecto(listDatos[0]);
+                    proyecto.setDuracionProyecto(Integer.parseInt(listDatos[1]));
+                    proyecto.setFechaInicio(new SimpleDateFormat("dd/MM/yyyy").parse(listDatos[2]));
+                    proyecto.setFechaEntrega(new SimpleDateFormat("dd/MM/yyyy").parse(listDatos[3]));
+                    proyecto.setFechaFin(new SimpleDateFormat("dd/MM/yyyy").parse(listDatos[4]));
+                    proyecto.setEstado(listDatos[5]);
+                    
                     list.add(proyecto);
                     
                     flag = true;
@@ -116,13 +116,13 @@ public class ProyectoData implements ProyectoDAO{
                     String[] listDatos = datos.split(";");
                     if(queryData == Integer.parseInt(listDatos[0]))
                     {
-                        proyecto.setDescripcionTarea(listDatos[0]);
-                        proyecto.setDuracionTarea(Integer.parseInt(listDatos[1]));
-                        proyecto.setFaseProyecto(listDatos[2]);
-                        proyecto.setIngeniero(listDatos[3]);
-                        proyecto.setFechaInicio(new SimpleDateFormat("dd/MM/yyyy").parse(listDatos[4]));
-                        proyecto.setRolRequerido(listDatos[5]);
-                        proyecto.setEstadoTarea(listDatos[6]);
+                        proyecto.setNombreProyecto(listDatos[0]);
+                        proyecto.setDuracionProyecto(Integer.parseInt(listDatos[1]));
+                        proyecto.setFechaInicio(new SimpleDateFormat("dd/MM/yyyy").parse(listDatos[2]));
+                        proyecto.setFechaEntrega(new SimpleDateFormat("dd/MM/yyyy").parse(listDatos[3]));
+                        proyecto.setFechaFin(new SimpleDateFormat("dd/MM/yyyy").parse(listDatos[4]));
+                        proyecto.setEstado(listDatos[5]);
+                    
                         
                         flag = true;
                     }
