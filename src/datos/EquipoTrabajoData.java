@@ -5,12 +5,18 @@ import java.util.ArrayList;
 import logica.Ingeniero;
 import logica.EquipoTrabajo;
 import DAO.*;
+import java.util.List;
 
 public class EquipoTrabajoData implements EquipoTrabajoDAO {
 
     public EquipoTrabajoData() {};
 
-    public String writeFile(EquipoTrabajo equipoTrabajo) throws Exception {
+    public String writeFile(EquipoTrabajo equipoTrabajo) throws Exception 
+    {
+        
+        String res = "";
+        boolean flag = false;
+        
         try {
             File file = new File("psp2_db\\EquiposDeTrabajo.txt");
             FileWriter write;
@@ -20,11 +26,17 @@ public class EquipoTrabajoData implements EquipoTrabajoDAO {
                 write = new FileWriter(file, true);
                 buffered = new BufferedWriter(write);
                 buffered.newLine();
+                
+                res = "Se añadio un nuevo registro";
+                flag = true;
             }
             else
             {
                 write = new FileWriter(file, true);
                 buffered = new BufferedWriter(write);
+                
+                res = "Se añadio un registro";
+                flag = true;
             }
             write.close();
             buffered.close();
@@ -33,11 +45,14 @@ public class EquipoTrabajoData implements EquipoTrabajoDAO {
         }
         catch(IOException e)
         {
-            return e.toString();
+            System.out.println("A ocurrido un error");
+            e.printStackTrace();
         }
+        
+        return flag ? res : null; 
     }
     
-    public EquipoTrabajo queryFile(int id) throws Exception {
+    public EquipoTrabajo queryFile(int queryData) throws Exception {
         EquipoTrabajo equipoTrabajo = new EquipoTrabajo();
         try {
             File file = new File("psp2_db\\EquiposDeTrabajo.txt");
@@ -51,7 +66,7 @@ public class EquipoTrabajoData implements EquipoTrabajoDAO {
 
                 while((datos = buffered.readLine()) != null) {
                     String[] listaDatos = datos.split(";");
-                    if(Integer.parseInt(listaDatos[0]) == id){
+                    if(Integer.parseInt(listaDatos[0]) == queryData){
                         equipoTrabajo.setIdEquipoTrabajo(Integer.parseInt(listaDatos[0]));
                     }
             }
@@ -67,9 +82,10 @@ public class EquipoTrabajoData implements EquipoTrabajoDAO {
         return equipoTrabajo;
     }
 
-    public ArrayList<Ingeniero> queryIngenierosEquipo(int id) throws Exception {
+    @Override
+    public List<Ingeniero> queryIngenierosEquipo(int queryData) throws Exception {
 
-        ArrayList<Ingeniero> listaIngeniero = new ArrayList<Ingeniero>();
+        List<Ingeniero> listaIngeniero = new ArrayList();
 
         try {
 
@@ -84,7 +100,7 @@ public class EquipoTrabajoData implements EquipoTrabajoDAO {
 
                 while((datos = buffered.readLine()) != null) {
                     String[] listaDatos = datos.split(";");
-                    if(Integer.parseInt(listaDatos[0]) == id){
+                    if(Integer.parseInt(listaDatos[0]) == queryData){
                         Ingeniero ingeniero = new Ingeniero();
 
                         listaIngeniero.add(ingeniero);

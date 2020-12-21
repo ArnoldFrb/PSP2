@@ -7,7 +7,12 @@ import logica.Usuario;
 
 public class UsuarioData implements UsuarioDAO{
 
+    @Override
     public String writeFile(Usuario usuario) throws Exception {
+        
+        String res = "";
+        boolean flag = false;
+        
         try {
             File file = new File("psp2_db\\Usuarios.txt");
             FileWriter write;
@@ -18,12 +23,18 @@ public class UsuarioData implements UsuarioDAO{
                 buffered = new BufferedWriter(write);
                 buffered.newLine();
                 buffered.write(usuario.datosParaArchivo());
+                
+                res = "Se añadio un nuevo registro";
+                flag = true;
             }
             else
             {
                 write = new FileWriter(file, true);
                 buffered = new BufferedWriter(write);
                 buffered.write(usuario.datosParaArchivo());
+                
+                res = "Se añadio un registro";
+                flag = true;
             }
             write.close();
             buffered.close();
@@ -32,12 +43,18 @@ public class UsuarioData implements UsuarioDAO{
         }
         catch(IOException e)
         {
-            return e.toString();
+            System.out.println("A ocurrido un error");
+            e.printStackTrace();
         }
+        
+        return flag ? res : null;
     }
     
+    @Override
     public Usuario queryFile(int querydata) throws Exception {
         Usuario usuario = new Usuario();
+        
+        boolean flag = false;
 
         try {
 
@@ -61,6 +78,8 @@ public class UsuarioData implements UsuarioDAO{
                         usuario.setUsuario(listaDatos[3]);
                         usuario.setContraseña(listaDatos[4]);
                         usuario.setTipoUsurio(Boolean.parseBoolean(listaDatos[5]));
+                        
+                        flag = true;
                     }
                 }
                 read.close();
@@ -72,7 +91,8 @@ public class UsuarioData implements UsuarioDAO{
             System.out.println("A ocurrido un error");
             e.printStackTrace();
         }
-        return usuario;
+        
+        return flag ? usuario : null;
     }
     
     public List<Usuario> readFile() throws Exception {
@@ -103,10 +123,11 @@ public class UsuarioData implements UsuarioDAO{
                     usuario.setTipoUsurio(Boolean.parseBoolean(listaDatos[5]));
                     
                     list.add(usuario);
+                    
+                    flag = true;
                 }
                 read.close();
                 buffered.close();
-                flag = true;
             }
         }
         catch(IOException e)

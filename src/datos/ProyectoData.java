@@ -7,7 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 import logica.Proyecto;
 public class ProyectoData implements ProyectoDAO{
+    
     public String writeFile(Proyecto proyecto) throws Exception {
+        
+        String res = "";
+        boolean flag = false;
+        
         try {
             File file = new File("psp2_db\\Proyecto.txt");
             FileWriter write;
@@ -17,12 +22,18 @@ public class ProyectoData implements ProyectoDAO{
                 buffered = new BufferedWriter(write);
                 buffered.newLine();
                 buffered.write(proyecto.datosParaArchivo());
+                
+                res = "Se añadio un nuevo registro";
+                flag = true;
             }
             else
             {
                 write = new FileWriter(file, true);
                 buffered = new BufferedWriter(write);
                 buffered.write(proyecto.datosParaArchivo());
+                
+                res = "Se añadio un registro";
+                flag = true;
             }
             write.close();
             buffered.close();
@@ -32,13 +43,15 @@ public class ProyectoData implements ProyectoDAO{
             System.out.println("A ocurrido un error");
             e.printStackTrace();
         }
-        return "Todo melo";
+        
+        return flag ? res : null;
     }
     
     public List<Proyecto> readFile() throws Exception
     {
         List<Proyecto> list = new ArrayList();
         boolean flag = false;
+        
         try
         {
             File file = new File("psp2_db\\Ingenieros.txt");
@@ -63,10 +76,11 @@ public class ProyectoData implements ProyectoDAO{
                     proyecto.setRolRequerido(listDatos[5]);
                     proyecto.setEstadoTarea(listDatos[6]);
                     list.add(proyecto);
+                    
+                    flag = true;
                 }
                 read.close();
                 buffered.close();
-                flag = true;
             }
             else
             {

@@ -11,6 +11,9 @@ public class TareasData implements TareaDAO {
     
     public String writeFile(Tarea tarea) throws Exception
     {
+        String res = "";
+        boolean flag = false;
+        
         try
         {
             File file = new File("psp2_db\\Ingenieros.txt");
@@ -22,12 +25,18 @@ public class TareasData implements TareaDAO {
                 buffered = new BufferedWriter(write);
                 buffered.newLine();
                 buffered.write(tarea.datosParaArchivo());
+                
+                res = "Se añadio un nuevo registro";
+                flag = true;
             }
             else
             {
                 write = new FileWriter(file, true);
                 buffered = new BufferedWriter(write);
                 buffered.write(tarea.datosParaArchivo());
+                
+                res = "Se añadio un registro";
+                flag = true;
             }
             write.close();
             buffered.close();
@@ -37,7 +46,8 @@ public class TareasData implements TareaDAO {
             System.out.println("A ocurrido un error");
             e.printStackTrace();
         }
-        return "Todo melo";
+        
+        return flag ? res : null;
     }
     
     public List<Tarea> readFile() throws Exception
@@ -68,10 +78,11 @@ public class TareasData implements TareaDAO {
                     tarea.setRolRequerido(listDatos[5]);
                     tarea.setEstadoTarea(listDatos[6]);
                     list.add(tarea);
+                    
+                    flag = true;
                 }
                 read.close();
                 buffered.close();
-                flag = true;
             }
             else
             {
@@ -120,7 +131,6 @@ public class TareasData implements TareaDAO {
                 }
                 read.close();
                 buffered.close();
-                return tarea;
             }
             else
             {

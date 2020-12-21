@@ -10,6 +10,9 @@ public class IngenierosData implements IngenieroDAO{
     
     public String writeFile(Ingeniero ing) throws Exception
     {
+        String res = "";
+        boolean flag = false;
+        
         try
         {
             File file = new File("psp2_db\\Ingenieros.txt");
@@ -21,12 +24,18 @@ public class IngenierosData implements IngenieroDAO{
                 buffered = new BufferedWriter(write);
                 buffered.newLine();
                 buffered.write(ing.datosParaArchivo());
+                
+                res = "Se añadio un nuevo registro";
+                flag = true;
             }
             else
             {
                 write = new FileWriter(file, true);
                 buffered = new BufferedWriter(write);
                 buffered.write(ing.datosParaArchivo());
+                
+                res = "Se añadio un registro";
+                flag = true;
             }
             write.close();
             buffered.close();
@@ -37,7 +46,7 @@ public class IngenierosData implements IngenieroDAO{
             e.printStackTrace();
         }
         
-        return "HELLO WORLD";
+        return flag ? res : null;    
     }
     
     public List<Ingeniero> readFile() throws Exception
@@ -68,10 +77,11 @@ public class IngenierosData implements IngenieroDAO{
                     ing.setEspecailidadIngeniero(listDatos[4]);
                     ing.setAñosExperiencia(Integer.parseInt(listDatos[4]));
                     list.add(ing);
+                    
+                    flag = true;
                 }
                 read.close();
                 buffered.close();
-                flag = true;
             }
             else
             {
