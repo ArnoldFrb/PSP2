@@ -5,10 +5,18 @@ import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import logica.Tarea;
 
 public class TareasData implements TareaDAO {
     
+    private File file;
+
+    public TareasData() {
+        file = new File("psp2_db\\Tareas.txt");
+    }
+
+    @Override
     public String writeFile(Tarea tarea) throws Exception
     {
         String res = "";
@@ -16,15 +24,12 @@ public class TareasData implements TareaDAO {
         
         try
         {
-            File file = new File("psp2_db\\Ingenieros.txt");
             FileWriter write;
-            BufferedWriter buffered;
+            
             if(file.exists())
             {
                 write = new FileWriter(file, true);
-                buffered = new BufferedWriter(write);
-                buffered.newLine();
-                buffered.write(tarea.datosParaArchivo());
+                write.write(tarea.datosParaArchivo());
                 
                 res = "Se añadio un nuevo registro";
                 flag = true;
@@ -32,14 +37,13 @@ public class TareasData implements TareaDAO {
             else
             {
                 write = new FileWriter(file, true);
-                buffered = new BufferedWriter(write);
-                buffered.write(tarea.datosParaArchivo());
+                write.write(tarea.datosParaArchivo());
                 
                 res = "Se añadio un registro";
                 flag = true;
             }
+            
             write.close();
-            buffered.close();
         }
         catch(IOException e)
         {
@@ -50,23 +54,21 @@ public class TareasData implements TareaDAO {
         return flag ? res : null;
     }
     
+    @Override
     public List<Tarea> readFile() throws Exception
     {
         List<Tarea> list = new ArrayList();
         boolean flag = false;
         try
         {
-            File file = new File("psp2_db\\Ingenieros.txt");
-            FileReader read;
-            BufferedReader buffered;
             if(file.exists())
             {
-                read = new FileReader(file);
-                buffered = new BufferedReader(read);
-                
+                Scanner readScan = new Scanner(file);
                 String datos;
-                while((datos = buffered.readLine()) != null)
-                {
+                
+                while(readScan.hasNext()) {
+                    datos = readScan.nextLine();
+
                     String[] listDatos = datos.split(";");
                     Tarea tarea = new Tarea();
                     
@@ -81,8 +83,8 @@ public class TareasData implements TareaDAO {
                     
                     flag = true;
                 }
-                read.close();
-                buffered.close();
+                
+                readScan.close();
             }
             else
             {
@@ -94,9 +96,11 @@ public class TareasData implements TareaDAO {
             System.out.println("A ocurrido un error");
             e.printStackTrace();
         }
+
         return flag ? list : null;
     }
     
+    @Override
     public Tarea queryFile(int queryData) throws Exception
     {
         Tarea tarea = new Tarea();
@@ -104,19 +108,18 @@ public class TareasData implements TareaDAO {
         
         try
         {
-            File file = new File("psp2_db\\Ingenieros.txt");
-            FileReader read;
-            BufferedReader buffered;
             if(file.exists())
             {
-                read = new FileReader(file);
-                buffered = new BufferedReader(read);
                 
+                Scanner readScan = new Scanner(file);
                 String datos;
-                while((datos = buffered.readLine()) != null)
+
+                while(readScan.hasNext()) 
                 {
+                    datos = readScan.nextLine();
                     String[] listDatos = datos.split(";");
-                    if(queryData == Integer.parseInt(listDatos[0]))
+
+                    if(Integer.parseInt(listDatos[0]) == queryData)
                     {
                         tarea.setDescripcionTarea(listDatos[0]);
                         tarea.setDuracionTarea(Integer.parseInt(listDatos[1]));
@@ -129,8 +132,8 @@ public class TareasData implements TareaDAO {
                         flag = true;
                     }
                 }
-                read.close();
-                buffered.close();
+                
+                readScan.close();
             }
             else
             {
@@ -142,6 +145,7 @@ public class TareasData implements TareaDAO {
             System.out.println("A ocurrido un error");
             e.printStackTrace();
         }
+        
         return flag ? tarea : null;
     }
 }

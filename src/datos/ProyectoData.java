@@ -5,26 +5,32 @@ import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import logica.Proyecto;
 import logica.Tarea;
 import logica.EquipoTrabajo;
 
 public class ProyectoData implements ProyectoDAO{
     
+    private File file;
+
+    public ProyectoData() {
+        file = new File("psp2_db\\Proyectos.txt");
+    }
+
+    @Override
     public String writeFile(Proyecto proyecto) throws Exception {
         
         String res = "";
         boolean flag = false;
         
         try {
-            File file = new File("psp2_db\\Proyecto.txt");
+            
             FileWriter write;
-            BufferedWriter buffered;
+
             if(file.exists()) {
                 write = new FileWriter(file, true);
-                buffered = new BufferedWriter(write);
-                buffered.newLine();
-                buffered.write(proyecto.datosParaArchivo());
+                write.write(proyecto.datosParaArchivo());
                 
                 res = "Se añadio un nuevo registro";
                 flag = true;
@@ -32,14 +38,13 @@ public class ProyectoData implements ProyectoDAO{
             else
             {
                 write = new FileWriter(file, true);
-                buffered = new BufferedWriter(write);
-                buffered.write(proyecto.datosParaArchivo());
+                write.write(proyecto.datosParaArchivo());
                 
                 res = "Se añadio un registro";
                 flag = true;
             }
+            
             write.close();
-            buffered.close();
         }
         catch(IOException e)
         {
@@ -50,37 +55,39 @@ public class ProyectoData implements ProyectoDAO{
         return flag ? res : null;
     }
 
+    @Override
     public String writeFileTarea(Proyecto proyecto) throws Exception {
         
         String res = "";
         boolean flag = false;
         
         try {
-            File file = new File("psp2_db\\TareaProyecto.txt");
+            
+            File fileOther = new File("psp2_db\\TareaProyecto.txt");
             FileWriter write;
-            BufferedWriter buffered;
+
             if(file.exists()) {
-                write = new FileWriter(file, true);
-                buffered = new BufferedWriter(write);
-                buffered.newLine();
-                buffered.write(proyecto.datosParaArchivo());
+
+                write = new FileWriter(fileOther, true);
+                write.write(proyecto.datosParaArchivo());
                 
                 res = "Se añadio un nuevo registro";
                 flag = true;
             }
             else
             {
-                write = new FileWriter(file, true);
-                buffered = new BufferedWriter(write);
+                write = new FileWriter(fileOther, true);
+
                 for (Tarea tarea : proyecto.getListaTareas()) {
+
                     String var = proyecto.getNombreProyecto()+";"+tarea.datosParaArchivo()+"\n";
-                    buffered.write(var);
+                    write.write(var);
                 }
                 res = "Se añadio un registro";
                 flag = true;
             }
+
             write.close();
-            buffered.close();
         }
         catch(IOException e)
         {
@@ -91,37 +98,39 @@ public class ProyectoData implements ProyectoDAO{
         return flag ? res : null;
     }
     
+    @Override
     public String writeFileEquipo(Proyecto proyecto) throws Exception {
         
         String res = "";
         boolean flag = false;
         
         try {
-            File file = new File("psp2_db\\TareaProyecto.txt");
+
+            File fileOther = new File("psp2_db\\TareaProyecto.txt");
             FileWriter write;
-            BufferedWriter buffered;
+            
             if(file.exists()) {
-                write = new FileWriter(file, true);
-                buffered = new BufferedWriter(write);
-                buffered.newLine();
-                buffered.write(proyecto.datosParaArchivo());
+
+                write = new FileWriter(fileOther, true);
+                write.write(proyecto.datosParaArchivo());
                 
                 res = "Se añadio un nuevo registro";
                 flag = true;
             }
             else
             {
-                write = new FileWriter(file, true);
-                buffered = new BufferedWriter(write);
+                write = new FileWriter(fileOther, true);
+                
                 for (EquipoTrabajo equipo : proyecto.getListaEquipoTrabajo()) {
+
                     String var = proyecto.getNombreProyecto()+";"+equipo.datosParaArchivo()+"\n";
-                    buffered.write(var);
+                    write.write(var);
                 }
                 res = "Se añadio un registro";
                 flag = true;
             }
+
             write.close();
-            buffered.close();
         }
         catch(IOException e)
         {
@@ -132,23 +141,23 @@ public class ProyectoData implements ProyectoDAO{
         return flag ? res : null;
     }
 
+    @Override
     public List<Proyecto> readFile() throws Exception {
         List<Proyecto> list = new ArrayList();
         boolean flag = false;
         
         try
         {
-            File file = new File("psp2_db\\Ingenieros.txt");
-            FileReader read;
-            BufferedReader buffered;
+
             if(file.exists())
             {
-                read = new FileReader(file);
-                buffered = new BufferedReader(read);
-                
+
+                Scanner readScan = new Scanner(file);
                 String datos;
-                while((datos = buffered.readLine()) != null)
-                {
+                
+                while(readScan.hasNext()) {
+                    
+                    datos = readScan.nextLine();
                     String[] listDatos = datos.split(";");
                     Proyecto proyecto = new Proyecto();
                     
@@ -163,8 +172,8 @@ public class ProyectoData implements ProyectoDAO{
                     
                     flag = true;
                 }
-                read.close();
-                buffered.close();
+
+                readScan.close();
             }
             else
             {
@@ -179,6 +188,7 @@ public class ProyectoData implements ProyectoDAO{
         return flag ? list : null;
     }
     
+    @Override
     public Proyecto queryFile(int queryData) throws Exception
     {
         Proyecto proyecto = new Proyecto();
@@ -186,17 +196,15 @@ public class ProyectoData implements ProyectoDAO{
         
         try
         {
-            File file = new File("psp2_db\\Ingenieros.txt");
-            FileReader read;
-            BufferedReader buffered;
+            
             if(file.exists())
             {
-                read = new FileReader(file);
-                buffered = new BufferedReader(read);
-                
+                Scanner readScan = new Scanner(file);
                 String datos;
-                while((datos = buffered.readLine()) != null)
-                {
+                
+                while(readScan.hasNext()) {
+                    
+                    datos = readScan.nextLine();
                     String[] listDatos = datos.split(";");
                     if(queryData == Integer.parseInt(listDatos[0]))
                     {
@@ -206,13 +214,12 @@ public class ProyectoData implements ProyectoDAO{
                         proyecto.setFechaEntrega(new SimpleDateFormat("dd/MM/yyyy").parse(listDatos[3]));
                         proyecto.setFechaFin(new SimpleDateFormat("dd/MM/yyyy").parse(listDatos[4]));
                         proyecto.setEstado(listDatos[5]);
-                    
                         
                         flag = true;
                     }
                 }
-                read.close();
-                buffered.close();
+
+                readScan.close();
             }
             else
             {

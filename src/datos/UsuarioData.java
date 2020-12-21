@@ -14,8 +14,6 @@ public class UsuarioData implements UsuarioDAO{
         file = new File("psp2_db\\Usuarios.txt");
     }
     
-    
-    
     @Override
     public String writeFile(Usuario usuario) throws Exception {
         
@@ -23,8 +21,9 @@ public class UsuarioData implements UsuarioDAO{
         boolean flag = false;
         
         try {
+
             FileWriter write;
-           
+            
             if(file.exists())
             {
                 write = new FileWriter(file, true);
@@ -41,6 +40,7 @@ public class UsuarioData implements UsuarioDAO{
                 res = "Se añadio un registro";
                 flag = true;
             }
+
             write.close();
         }
         catch(IOException e)
@@ -54,20 +54,20 @@ public class UsuarioData implements UsuarioDAO{
     
     @Override
     public Usuario queryFile(int querydata) throws Exception {
+
         Usuario usuario = new Usuario();
-        
         boolean flag = false;
 
         try {
-            FileReader read;
-
+            
             if(file.exists()) {
 
-                read = new FileReader(file);
+                Scanner readScan = new Scanner(file);
                 String datos;
-                Scanner readScan = new Scanner(read);
                 
-                while((datos = readScan.nextLine()) != null) {
+                while(readScan.hasNext()) {
+                    
+                    datos = readScan.nextLine();
                     String[] listaDatos = datos.split(";");
 
                     if(Integer.parseInt(listaDatos[0]) == querydata){
@@ -81,7 +81,7 @@ public class UsuarioData implements UsuarioDAO{
                         flag = true;
                     }
                 }
-                read.close();
+                
                 readScan.close();
             }
         }
@@ -94,22 +94,23 @@ public class UsuarioData implements UsuarioDAO{
         return flag ? usuario : null;
     }
     
-    public List<Usuario> readFile() throws Exception {
+    @Override
+    public List<Usuario> readFile() throws Exception 
+    {
         
         List<Usuario> list = new ArrayList();
         boolean flag = false;
+
         try {
-            
-            FileReader read;
 
             if(file.exists()) {
 
-                read = new FileReader(file);
-                Scanner readScan = new Scanner(read);
+                Scanner readScan = new Scanner(file);
                 String datos;
-
-                while((datos = readScan.nextLine()) != null) {
+                
+                while(readScan.hasNext()) {
                     
+                    datos = readScan.nextLine();
                     String[] listaDatos = datos.split(";");
                     Usuario usuario = new Usuario();
                     
@@ -124,7 +125,7 @@ public class UsuarioData implements UsuarioDAO{
                     
                     flag = true;
                 }
-                read.close();
+
                 readScan.close();
             }
         }
@@ -133,6 +134,7 @@ public class UsuarioData implements UsuarioDAO{
             System.out.println("A ocurrido un error");
             e.printStackTrace();
         }
+
         return flag ? list : null;
     }
     
@@ -149,7 +151,8 @@ public class UsuarioData implements UsuarioDAO{
                 Scanner readScan = new Scanner(file);
                 String datos;
 
-                while(readScan.hasNext()) {
+                while(readScan.hasNext()) 
+                {
                     datos = readScan.nextLine();
                     String[] listaDatos = datos.split(";");
                     

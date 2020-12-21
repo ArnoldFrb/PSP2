@@ -1,4 +1,5 @@
 package DAO;
+import java.util.List;
 import logica.Tarea;
 
 //Interfaz que se implementa en la clase TareaData,
@@ -8,4 +9,5 @@ public interface TareaDAO {
     String writeFile (Tarea tarea) throws Exception;
     //Metodo que consulta en el archivo y retorna un objeto de tipo tarea
     Tarea queryFile(int id) throws Exception;
+    List<Tarea> readFile() throws Exception;
 }

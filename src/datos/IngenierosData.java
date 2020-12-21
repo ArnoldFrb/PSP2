@@ -4,10 +4,18 @@ import DAO.IngenieroDAO;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import logica.Ingeniero;
 
 public class IngenierosData implements IngenieroDAO{
     
+    private File file;
+
+    public IngenierosData() {
+        file = new File("psp2_db\\Ingenieros.txt");
+    }
+
+    @Override
     public String writeFile(Ingeniero ing) throws Exception
     {
         String res = "";
@@ -15,15 +23,12 @@ public class IngenierosData implements IngenieroDAO{
         
         try
         {
-            File file = new File("psp2_db\\Ingenieros.txt");
             FileWriter write;
-            BufferedWriter buffered;
+            
             if(file.exists())
             {
                 write = new FileWriter(file, true);
-                buffered = new BufferedWriter(write);
-                buffered.newLine();
-                buffered.write(ing.datosParaArchivo());
+                write.write(ing.datosParaArchivo());
                 
                 res = "Se añadio un nuevo registro";
                 flag = true;
@@ -31,14 +36,13 @@ public class IngenierosData implements IngenieroDAO{
             else
             {
                 write = new FileWriter(file, true);
-                buffered = new BufferedWriter(write);
-                buffered.write(ing.datosParaArchivo());
+                write.write(ing.datosParaArchivo());
                 
                 res = "Se añadio un registro";
                 flag = true;
             }
+
             write.close();
-            buffered.close();
         }
         catch(IOException e)
         {
@@ -49,6 +53,7 @@ public class IngenierosData implements IngenieroDAO{
         return flag ? res : null;    
     }
     
+    @Override
     public List<Ingeniero> readFile() throws Exception
     {
         List<Ingeniero> list = new ArrayList();
@@ -56,17 +61,15 @@ public class IngenierosData implements IngenieroDAO{
         
         try
         {
-            File file = new File("psp2_db\\Ingenieros.txt");
-            FileReader read;
-            BufferedReader buffered;
+            
             if(file.exists())
             {
-                read = new FileReader(file);
-                buffered = new BufferedReader(read);
-                
+                Scanner readScan = new Scanner(file);
                 String datos;
-                while((datos = buffered.readLine()) != null)
-                {
+                
+                while(readScan.hasNext()) {
+                    
+                    datos = readScan.nextLine();
                     String[] listDatos = datos.split(";");
                     Ingeniero ing = new Ingeniero();
                     
@@ -80,8 +83,8 @@ public class IngenierosData implements IngenieroDAO{
                     
                     flag = true;
                 }
-                read.close();
-                buffered.close();
+
+                readScan.close();
             }
             else
             {
@@ -93,9 +96,11 @@ public class IngenierosData implements IngenieroDAO{
             System.out.println("A ocurrido un error");
             e.printStackTrace();
         }
+        
         return flag ? list : null;
     }
     
+    @Override
     public Ingeniero queryFile(int queryData) throws Exception
     {
         Ingeniero ing = new Ingeniero();
@@ -103,17 +108,15 @@ public class IngenierosData implements IngenieroDAO{
         
         try
         {
-            File file = new File("psp2_db\\Ingenieros.txt");
-            FileReader read;
-            BufferedReader buffered;
+
             if(file.exists())
             {
-                read = new FileReader(file);
-                buffered = new BufferedReader(read);
-                
+                Scanner readScan = new Scanner(file);
                 String datos;
-                while((datos = buffered.readLine()) != null)
+
+                while(readScan.hasNext()) 
                 {
+                    datos = readScan.nextLine();
                     String[] listDatos = datos.split(";");
                     
                     if(queryData == Integer.parseInt(listDatos[0]))
@@ -128,9 +131,8 @@ public class IngenierosData implements IngenieroDAO{
                         flag = true;
                     }
                 }
-                read.close();
-                buffered.close();
-                
+
+                readScan.close();
             }
             else
             {
@@ -142,6 +144,7 @@ public class IngenierosData implements IngenieroDAO{
             System.out.println("A ocurrido un error");
             e.printStackTrace();
         }
+        
         return flag ? ing : null;
     }
 }
